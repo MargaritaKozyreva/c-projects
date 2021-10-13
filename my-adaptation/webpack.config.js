@@ -15,7 +15,7 @@ const webpackConfig = (env, args) => {
 	
 	return {
 		entry: {
-			main: './src/index.tsx'
+			main: './index.tsx'
 		},
 		resolve: {
 			extensions: ['.ts', '.tsx', '.js'],
@@ -89,7 +89,7 @@ const webpackConfig = (env, args) => {
 		},
 		plugins: [
 			new HtmlWebpackPlugin({
-				template: './src/index.html'
+				template: './index.html'
 			}),
 			new MiniCssExtractPlugin({
 				filename: '[name].[hash].css',
