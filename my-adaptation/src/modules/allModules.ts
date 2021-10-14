@@ -1,7 +1,7 @@
 import { CaseReducer } from '@reduxjs/toolkit';
 import { RouteProps } from 'react-router';
 import { ForkEffect } from 'redux-saga/effects';
-import { myAdaptationModule } from './my-adaptation/modules';
+import { mainModule } from './my-adaptation/modules';
 
 export interface IRouter extends Omit<RouteProps, 'path'> {
 	name: string;
@@ -18,5 +18,5 @@ export interface BaseModule {
 }
 
 export const allModules: BaseModule[] = [
-	myAdaptationModule
+	mainModule
 ];

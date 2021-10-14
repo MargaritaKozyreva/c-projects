@@ -1,27 +1,29 @@
 import { BaseModule } from '../allModules';
 import routes from './routes';
-import { pokemonReducers } from './redux/pokemonSlice';
+import { educationReducers } from './redux/EducationSlices';
+import { progressReducers } from './redux/progressSlices';
 
-class adaptationModule implements BaseModule {
-	readonly name = 'pokemons';
+class _mainModule implements BaseModule {
+    readonly name = 'main';
 
-	getMiddlewares() {
-		return [];
-	}
+    getMiddlewares() {
+    	return [];
+    }
 
-	getReducers() {
-		return {
-			pokemonList: pokemonReducers,
-		};
-	}
+    getReducers() {
+    	return {
+    		progress: progressReducers,
+    		education: educationReducers,
+    	};
+    }
 
-	getSagas() {
-		return [];
-	}
+    getSagas() {
+    	return [];
+    }
 
-	getRoutes() {
-		return routes;
-	}
+    getRoutes() {
+    	return routes;
+    }
 }
 
-export const myAdaptationModule = new adaptationModule();
+export const mainModule = new _mainModule();
