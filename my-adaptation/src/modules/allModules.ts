@@ -1,7 +1,7 @@
 import { CaseReducer } from '@reduxjs/toolkit';
 import { RouteProps } from 'react-router';
 import { ForkEffect } from 'redux-saga/effects';
-import { mainModule } from './my-adaptation/modules';
+import { mainModule } from './my-adaptation/module';
 
 export interface IRouter extends Omit<RouteProps, 'path'> {
 	name: string;

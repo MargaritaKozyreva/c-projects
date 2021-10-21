@@ -1,10 +1,10 @@
-import { MyAdaptation } from '../dataContext/MyAdaptationDTO.dto';
+import { MyAdaptationDTO } from '../dataContext/MyAdaptationDTO.dto';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export type EducationState = {
 	loading: boolean;
     educationData: {
-        educationList: MyAdaptation.EducationList | null
+        educationList: MyAdaptationDTO.EducationList | null
     } | null
 	
 };
@@ -18,14 +18,14 @@ const educationSlices = createSlice({
 	name: 'educationSlice',
 	initialState,
 	reducers: {
-		geteducationRequest: (state) => {
+		getEducationRequest: (state) => {
 			state.loading = true;
 		},
-		geteducationSuccess: (state, action: PayloadAction<EducationState['educationData']>) => {
+		getEducationSuccess: (state, action: PayloadAction<EducationState['educationData']>) => {
 			state.loading = false;
 			state.educationData = action.payload;
 		},
-		geteducationError: (state, action) => {
+		getEducationError: (state, action) => {
 			state.loading = false;
 		}
 	}

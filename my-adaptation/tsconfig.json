@@ -5,6 +5,7 @@
     "outDir": "./build/",
     "paths": {
       "@components/*": ["src/components/*"],
+      "@core/*": ["src/core/*"],
       "@ui/*": ["../../ui/*"],
     },
     "sourceMap": true,
