@@ -1,7 +1,8 @@
 import { CaseReducer } from '@reduxjs/toolkit';
 import { RouteProps } from 'react-router';
 import { ForkEffect } from 'redux-saga/effects';
-import { mainModule } from './my-adaptation/module';
+import { progressModule } from './ProgressBar/module';
+import { learnTableModule } from './LearnTable/module';
 
 export interface IRouter extends Omit<RouteProps, 'path'> {
 	name: string;
@@ -9,14 +10,17 @@ export interface IRouter extends Omit<RouteProps, 'path'> {
 	title?: string;
 }
 
+export type ReducerType = { [key: string]: CaseReducer };
+export type SagasType = Generator<ForkEffect<never>, void>[];
+export type RoutesType = IRouter[];
+export type MiddlewaresType = any;
+
 export interface BaseModule {
 	readonly name: string;
-	getSagas: () => Generator<ForkEffect<never>, void>[];
-	getReducers: () => {[key: string]: CaseReducer };
-	getRoutes: () => IRouter[];
-	getMiddlewares: () => any[];
+	getSagas: () => SagasType;
+	getReducers: () => ReducerType;
+	getRoutes: () => RoutesType;
+	getMiddlewares: () => MiddlewaresType;
 }
 
-export const allModules: BaseModule[] = [
-	mainModule
-];
+export const allModules: BaseModule[] = [progressModule, learnTableModule];
