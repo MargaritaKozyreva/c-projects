@@ -1,5 +1,6 @@
 import { LearnTableDTO } from '../dataContext/LearnTableDTO.dto';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { getEducationsById } from '@core/features/educationList/thunks/getEducationsById';
 
 export type learnTableState = {
 	loading: boolean;
@@ -36,11 +37,12 @@ const learnTableSlices = createSlice({
 		},
 		getEducationError: (state, action) => {
 			state.loading = false;
-		},
-		addEducationRaw: (state, action: PayloadAction<any>) => {
-			state.loading = false;
-			state.learnListData = action.payload;
 		}
+	},
+	extraReducers: (builder) => {
+		builder.addCase(getEducationsById.fulfilled, (state, action) => {
+			console.log(action.payload);
+		});
 	}
 });
 
