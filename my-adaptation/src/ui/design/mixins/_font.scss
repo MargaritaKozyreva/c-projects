@@ -1,0 +1,80 @@
+@mixin set-line-height($size: 'm') {
+	@each $name, $value in map-get($map: $FONTS, $key: 'line-height') {
+		@if ($name == $size) {
+			line-height: $value;
+		}
+	}
+}
+
+@mixin set-fontt() {
+	@each $typeName, $typeVal in map-get($map: $FONTS, $key: 'type') {
+		@each $sizeName, $sizeVal in map-get($map: $FONTS, $key: 'size') {
+			@if ($sizeName == $typeVal) {
+				&--type-#{$typeName} {
+					@include set-line-height(#{$sizeName});
+					font-size: #{$sizeVal};
+				}
+			}
+
+			&--size-#{$sizeName} {
+				font-size: #{$sizeVal};
+			}
+		}
+	}
+	@each $weightName, $val in map-get($map: $FONTS, $key: 'weight') {
+		&--weight-#{$weightName} {
+			font-weight: #{$val};
+		}
+	}
+}
+
+@mixin typography($type, $level) {
+	font-family: Roboto;
+	font-style: normal;
+	@include typography-type($type);
+	@include typography-level($level);
+}
+
+@mixin typography-type($value) {
+	@if $value == heading {
+		font-weight: 700;
+	} @else if $value == medium {
+		font-weight: 500;
+	} @else if $value == regular {
+		font-weight: 400;
+	} @else {
+		@error "Unknown typography type #{$type}.";
+	}
+}
+
+@mixin typography-level($value) {
+	// ------------ Text -----------------
+	@if $value == T1 {
+		@include text-size(16px, 24px);
+	} @else if $value == T2 {
+		@include text-size(14px, 20px);
+	} @else if $value == T3 {
+		@include text-size(12px, 16px);
+		// ---------- Heading ----------
+	} @else if $value == H1 {
+		@include text-size(32px, 40px);
+	} @else if $value == H2 {
+		@include text-size(24px, 32px);
+	} @else if $value == H3 {
+		@include text-size(20px, 28px);
+	} @else if $value == H4 {
+		@include text-size(12px, 16px);
+		// ---------- Button ----------
+	} @else if $value == BTN1 {
+		@include text-size(16px, 24px);
+	} @else if $value == BTN2 {
+		@include text-size(14px, 16px);
+	} @else {
+		@error "Unknown level #{$level}.";
+	}
+}
+
+@mixin text-size($FontSize, $LineHeight) {
+	font-size: $FontSize;
+	line-height: $LineHeight;
+}

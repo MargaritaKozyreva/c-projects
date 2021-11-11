@@ -1,0 +1,14 @@
+// ===============================================
+// ROOT MIXINS
+// ===============================================
+
+// Миксин для копирования переменных в root
+
+@mixin get-content {
+	@content;
+}
+
+@import './presets/root';
+@import './tokens/root';
+@import './mixins/root';
+@import './functions/root';

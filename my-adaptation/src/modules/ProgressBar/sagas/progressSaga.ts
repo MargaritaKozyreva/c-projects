@@ -11,7 +11,7 @@ export type SagaDataRequest<D> = Generator<
 >;
 
 const getUserProgressSaga =
-	function* (): SagaDataRequest<ProgressDTO.ProgressData> {
+	function* (): SagaDataRequest<ProgressDTO.Progress> {
 		try {
 			const { data } = yield call(ProgressContext.getUserProgress);
 			yield put(progressActions.getProgressSuccess(data));

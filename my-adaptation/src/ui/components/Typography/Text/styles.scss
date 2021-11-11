@@ -1,0 +1,15 @@
+@import "../../../design/root";
+
+.text {
+
+    @include set-fontt();
+
+    &.p,
+    &.span {
+        color: var(--color-gray-70);
+    }
+
+    &.uppercase {
+        text-transform: uppercase;
+    }
+}

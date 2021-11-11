@@ -6,7 +6,9 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@core/*": ["src/core/*"],
-      "@ui/*": ["../../ui/*"],
+      "@modules/*": ["src/modules/*"],
+      "@icons/*":["src/ui/components/icons/*"],
+      "@ui/*":["src/ui/*"]
     },
     "sourceMap": true,
     "module": "commonjs",

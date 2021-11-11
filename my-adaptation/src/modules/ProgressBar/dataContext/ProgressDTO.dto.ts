@@ -6,19 +6,24 @@ export namespace ProgressDTO {
 
 	/**
 	 * active - Является текущим этапом, на котором находится сотрудник
-	 * current - Является выбранным этапом, на который по клику сотрудник перешёл в данный момент времени
+	 * selected - Является выбранным этапом, на который по клику сотрудник перешёл в данный момент времени
 	 * available - Доступен к переходу так как уже был пройден ранее
 	 */
-	export type StepState = 'active' | 'current' | 'available' | 'locked';
+	export type StepState = 'active' | 'selected' | 'available' | 'locked';
 
 	export type Step = {
 		title: string; //название этапа
 		num: number; //номер этапа
 		stepState: StepState; //состояние этапа
+		dateStart: string; //дата начала этапа
+		dateEnd: string; //дата завершения этапа
 	};
 
 	export type ProgressData = {
 		progress: Progress;
-		steps: Step[];
+		steps: {
+			data: Step[]
+		};
 	};
+
 }

@@ -1,0 +1,98 @@
+@import '../../design/root';
+
+.x5-design-button {
+	// для большинства компонетов x5.
+	@include reset-button;
+	box-sizing: border-box;
+	/* Текст меняет радиус */
+	border-radius: 24px;
+	&_with-text {
+		border-radius: 8px;
+	}
+
+	/* ------------------------ Layout ------------------------ */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	/* ---------------------- Component ----------------------- */
+	&__text {
+		@include typography(regular, BTN1);
+	}
+	&__icon {
+		&_margin {
+			margin-left: 4px;
+		}
+	}
+	/* ------------------------ Size ------------------------ */
+	&_size {
+		&_l {
+			padding: var(--gp-s);
+		}
+		&_m {
+			padding: var(--gp-xs);
+		}
+		&_s {
+			padding: var(--gp-xxxs);
+			.x5-design-button__text {
+				@include typography(regular, BTN2);
+			}
+		}
+	}
+	// TODO: как сделать красиво?
+	&_with-text.x5-design-button_size {
+		&_l {
+			padding: var(--gp-s) var(--gp-l);
+		}
+		&_m {
+			padding: var(--gp-xs) var(--gp-m);
+		}
+		&_s {
+			padding: var(--gp-xxxs) var(--gp-s);
+		}
+	}
+	/* ------------------------ Палитра ------------------------ */
+	@mixin action-default {
+		&:hover {
+			background-color: hexa(#5faf2d, 0.45);
+			color: var(--color-accent-cold-50);
+		}
+		&:active {
+			background-color: var(--color-accent-1-100); // ???
+			color: var(--color-white);
+		}
+		&:disabled {
+			background-color: var(--color-gray-20);
+			color: var(--color-gray-40);
+		}
+	}
+	@mixin action-ghost {
+		&:hover {
+			color: var(--color-accent-cold-50);
+		}
+		&:active {
+			color: var(--color-accent-1-100);
+		}
+		&:disabled {
+			color: var(--color-gray-40);
+		}
+	}
+
+	transition: background-color 0.1s, color 0.1s;
+	&_mode {
+		&_primary {
+			background-color: var(--color-green-60);
+			color: var(--color-white);
+			@include action-default;
+		}
+		&_secondary {
+			background-color: hexa(#5faf2d, 0.15);
+			color: var(--color-accent-cold-50);
+			@include action-default;
+		}
+		&_ghost {
+			color: var(--color-accent-1-50);
+			@include action-ghost;
+		}
+	}
+}

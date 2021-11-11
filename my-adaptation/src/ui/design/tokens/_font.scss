@@ -1,0 +1,84 @@
+@include get-content {
+    /**
+     * Используется только в верхнем регистре для коротких заголовков маленького размера.
+     */
+
+    --font-size-xxs: var(--font-size-10);
+
+    /**
+     * Самый маленький размер шрифта. Используется для самой второстепенной
+     * информации, например, в подвале страницы.
+     */
+
+    --font-size-xs: var(--font-size-12);
+
+    /**
+     * Маленький размер шрифта. Используется для снижения акцента.
+     */
+
+    --font-size-s: var(--font-size-14);
+
+    /**
+     * Стандартный размер шрифта.
+     */
+
+    --font-size-m: var(--font-size-16);
+
+    /**
+     * Большой размер шрифта. H3.
+     */
+    --font-size-l: var(--font-size-18);
+
+    /**
+     * Экстра большой размер шрифта. H2.
+     */
+    --font-size-xl: var(--font-size-24);
+
+    /**
+     * Двойной экстра размер шрифта. H1.
+     */
+    --font-size-xxl: var(--font-size-32);
+}
+
+$FONTS: (
+    "size": (
+        "xxl": var(--font-size-xxl),
+        "xl": var(--font-size-xl),
+        "l": var(--font-size-l),
+        "m": var(--font-size-m),
+        "s": var(--font-size-s),
+        "xs": var(--font-size-xs),
+        "xxs": var(--font-size-xxs),
+    ),
+    "type": (
+        "h1": "xxl",
+        "h2": "xl",
+        "h3": "l",
+        "h4": "m",
+        "h5": "m",
+        "h6": "m",
+        "p": (
+            m,
+            s,
+            xs,
+        ),
+        "span": (
+            m,
+            s,
+            xs,
+        ),
+    ),
+    "line-height": (
+        "xxl": var(--font-line-height-xxl),
+        "xl": var(--font-line-height-xl),
+        "l": var(--font-line-height-l),
+        "m": var(--font-line-height-m),
+        "s": var(--font-line-height-s),
+        "xs": var(--font-line-height-xs),
+    ),
+    "weight": (
+        "regular": var(--font-weight-regular),
+        "medium": var(--font-weight-medium),
+        "bold": var(--font-weight-bold),
+    ),
+) !global;

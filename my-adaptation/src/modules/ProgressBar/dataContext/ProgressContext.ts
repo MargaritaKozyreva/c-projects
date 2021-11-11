@@ -1,40 +1,20 @@
 import { ProgressDTO } from './ProgressDTO.dto';
 import {
+	httpService,
 	httpServiceMock,
-	ResponseResult
+	ResponseResult,
 } from '../../../core/httpService/service';
-
+import { AxiosPromise } from 'axios';
 class _ProgressContext {
 	getUserProgress(): ResponseResult<ProgressDTO.Progress> {
 		return httpServiceMock<ProgressDTO.Progress>({
 			percent: 50,
-			endDate: '01.01.2021'
+			endDate: '01.01.2021',
 		});
 	}
 
-	getSteps(): ResponseResult<ProgressDTO.Step[]> {
-		return httpServiceMock<ProgressDTO.Step[]>([
-			{
-				title: 'Этап 1',
-				num: 1,
-				stepState: 'current'
-			},
-			{
-				title: 'Этап 2',
-				num: 3,
-				stepState: 'active'
-			},
-			{
-				title: 'Этап 3',
-				num: 1,
-				stepState: 'available'
-			},
-			{
-				title: 'Этап 4',
-				num: 1,
-				stepState: 'locked'
-			}
-		]);
+	getSteps(): AxiosPromise<ProgressDTO.Step[]> {
+		return httpService.get('steps');
 	}
 }
 

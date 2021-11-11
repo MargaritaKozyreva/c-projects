@@ -1,0 +1,16 @@
+@mixin set-icon($size: "m", $color: "black") {
+    @each $name, $value in map-get($ICONS, "name") {
+        &--name-#{$name} {
+            background-color: #{$color};
+            -webkit-mask: var(--icon-#{$name}-url) no-repeat center;
+            mask: var(--icon-#{$name}-url) no-repeat center;
+        }
+    }
+
+    @each $size, $value in map-get($ICONS, "size") {
+        &--size-#{$size} {
+            width: var(--icon-size-#{$size});
+            height: var(--icon-size-#{$size});
+        }
+    }
+}

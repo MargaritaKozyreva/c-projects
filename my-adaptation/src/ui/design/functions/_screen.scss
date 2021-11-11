@@ -1,0 +1,6 @@
+@use 'sass:map';
+@use 'sass:string';
+
+@function vm($value, $base: var(--desktop-xl)) {
+    @return $value / $base * 100vw;
+}

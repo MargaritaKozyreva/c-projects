@@ -1,5 +1,9 @@
 import { BaseModule } from '../allModules';
 import { progressReducers } from './redux/progressSlices';
+import { stepsReducers } from './redux/stepsSlices';
+import { progressSaga } from './sagas/progressSaga';
+import { stepsSaga } from './sagas/stepsSaga';
+
 class _progressModule implements BaseModule {
 	readonly name = 'progress';
 
@@ -9,12 +13,13 @@ class _progressModule implements BaseModule {
 
 	getReducers() {
 		return {
-			progress: progressReducers
+			progressData: progressReducers,
+			stepsData: stepsReducers
 		};
 	}
 
 	getSagas() {
-		return [];
+		return [progressSaga(), stepsSaga()];
 	}
 
 	getRoutes() {

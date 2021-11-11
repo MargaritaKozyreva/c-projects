@@ -1,0 +1,9 @@
+@import "../../../design/root";
+.zone {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font-size-xl);
+
+    @include set-spaces("margin");
+}

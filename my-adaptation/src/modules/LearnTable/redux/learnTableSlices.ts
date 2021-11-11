@@ -3,29 +3,43 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export type learnTableState = {
 	loading: boolean;
-    learnTableData: {
-        learnList: LearnTableDTO.LearnList | null
-    } | null
+	learnListData: LearnTableDTO.LearnListData[];
 };
 
 const initialState: learnTableState = {
 	loading: false,
-	learnTableData: null
+	learnListData: [
+		{
+			data: {
+				position: '',
+				step_num: 0,
+				rawList: [],
+				headerList: []
+			}
+		}
+	]
 };
 
 const learnTableSlices = createSlice({
 	name: 'educationSlice',
 	initialState,
 	reducers: {
-		getEducationRequest: (state) => {
+		getEducationRequest: (state, action) => {
 			state.loading = true;
 		},
-		getEducationSuccess: (state, action: PayloadAction<learnTableState['learnTableData']>) => {
+		getEducationSuccess: (
+			state,
+			action: PayloadAction<learnTableState['learnListData']>
+		) => {
 			state.loading = false;
-			state.learnTableData = action.payload;
+			state.learnListData = action.payload;
 		},
 		getEducationError: (state, action) => {
 			state.loading = false;
+		},
+		addEducationRaw: (state, action: PayloadAction<any>) => {
+			state.loading = false;
+			state.learnListData = action.payload;
 		}
 	}
 });

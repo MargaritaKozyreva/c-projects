@@ -1,5 +1,6 @@
 import { BaseModule } from '../allModules';
 import { learnTableReducers } from './redux/learnTableSlices';
+import LearnTableSaga from './sagas/educationSaga';
 class _learnTableModule implements BaseModule {
 	readonly name = 'learnTable';
 
@@ -14,7 +15,7 @@ class _learnTableModule implements BaseModule {
 	}
 
 	getSagas() {
-		return [];
+		return [LearnTableSaga()];
 	}
 
 	getRoutes() {

@@ -1,0 +1,22 @@
+@import '../../../design/root';
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  padding: var(--gp-2xl);
+  box-sizing: border-box;
+
+  &--default {
+    background-color: var(--color-white);
+    border-color: var(--btn-primary-bg);
+    color: var(--color-gray-100);
+    box-shadow: var(--shadow-02);
+  }
+
+  &--success {
+    background-color: var(--color-green-20);
+    border-color: var(--color-green-20);
+    color: var(--color-gray-100);
+  }
+}

@@ -12,7 +12,7 @@ const PATHS = {
 
 const webpackConfig = (env, args) => {
 	const isDevMode = args.mode === 'development';
-	
+
 	return {
 		entry: {
 			main: './index.tsx'
@@ -20,8 +20,11 @@ const webpackConfig = (env, args) => {
 		resolve: {
 			extensions: ['.ts', '.tsx', '.js'],
 			alias: {
-				'@ui': path.resolve(__dirname, '../../ui'),
-				'@core': path.resolve(__dirname, './../../core'),
+				'@core': path.resolve(__dirname, './src/core'),
+				'@modules': path.resolve(__dirname, './src/modules'),
+				'@components': path.resolve(__dirname, './src/components/'),
+				'@icons': path.resolve(__dirname, './src/ui/components/icons'),
+				'@ui': path.resolve(__dirname, './src/ui'),
 			}
 		},
 		output: {
@@ -53,25 +56,19 @@ const webpackConfig = (env, args) => {
 					}
 				},
 				{
-					test: /\.(sa|sc|c)ss$/,
+					test: /\.css$/,
+					use: ['style-loader', 'css-loader'],
+				},
+				{
+					test: /\.scss$/,
 					use: [
-						MiniCssExtractPlugin.loader, {
-							loader: 'css-loader',
-							options: {
-								sourceMap: true,
-								url: false,
-								modules: {
-									localIdentName: isDevMode ? '[local]' : '[hash:base64:5]'
-								}
-							}
-						},
+						'style-loader',
+						'css-modules-typescript-loader?modules',
 						{
-							loader: 'sass-loader',
-							options: {
-								sourceMap: true
-							}
-						}
-					]
+							loader: 'css-loader',
+						},
+						'sass-loader',
+					],
 				},
 				{
 					test: /\.(jpe?g|png|gif)$/i,
@@ -82,7 +79,19 @@ const webpackConfig = (env, args) => {
 				{
 					test: /\.svg$/,
 					use: ['@svgr/webpack'],
-				}
+				},
+				{
+					test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+					use: [
+						{
+							loader: 'file-loader',
+							options: {
+								name: '[name].[ext]',
+								outputPath: 'fonts/',
+							},
+						},
+					],
+				},
 			]
 		},
 		plugins: [
@@ -99,9 +108,6 @@ const webpackConfig = (env, args) => {
 
 module.exports = (env, args) => {
 	const config = webpackConfig(env, args);
-	if (args.mode === 'development') {
-		config.devtool = 'source-map';
-		// config.optimization = false;
-	}
+	config.devtool = 'eval-source-map';
 	return config;
 };

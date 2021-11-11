@@ -1,0 +1,43 @@
+@include get-content {
+  /**
+     * Дефолтный шрифт.
+     */
+
+  --font: "Open Sans";
+
+  /**
+      * Базовые размеры.
+      */
+
+  --font-size-10: 10px;
+  --font-size-12: 12px;
+  --font-size-14: 14px;
+  --font-size-16: 16px;
+  --font-size-18: 18px;
+  --font-size-24: 24px;
+  --font-size-32: 32px;
+
+  /**
+     * Стандартная толщина шрифта для всех компонентов.
+     */
+  --font-weight-regular: 400;
+
+  /**
+     * Толщина шрифта для сильного акцента. Например, используется в акцентных кнопках или
+     * выделении активных пунктов меню.
+     */
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /**
+     * Базовый интерлиньяж
+     */
+
+  --font-line-height-xxl: 40px;
+  --font-line-height-xl: 32px;
+  --font-line-height-l: 28px;
+  --font-line-height-m: 24px;
+  --font-line-height-s: 20px;
+  --font-line-height-xs: 16px;
+}

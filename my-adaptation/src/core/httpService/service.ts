@@ -1,18 +1,24 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
-import axios, { AxiosResponse, AxiosPromise } from 'axios';
+import axios, { AxiosResponse, AxiosPromise, Method } from 'axios';
 import { _url } from './service-tools';
+
+const httpService = axios.create({
+	baseURL: 'https://605109e453460900176711bc.mockapi.io/',
+});
+
 
 /**
  * Функция обращения к серверу (GET запрос)
  * @param url - адрес API, к которому необходимо обратиться
  * @returns - данные ответа
  */
-const httpService = async(backend_address_id: string, action: string) => {
+const _httpService = async(method: Method, backend_address_id: string, action: string, data: any) => {
 	try {
 		const response: AxiosResponse = await axios({
-			method: 'GET',
+			method: method,
 			url: _url(backend_address_id, action),
-			withCredentials: true
+			withCredentials: true,
+			data: JSON.stringify(data),
 		});
 		return {
 			data: response.data.data,
@@ -25,6 +31,7 @@ const httpService = async(backend_address_id: string, action: string) => {
 		throw new Error('Bad Request! ' + e);
 	}
 };
+
 
 type ResponseResult<Result> = Promise<AxiosResponse<Result>>;
 

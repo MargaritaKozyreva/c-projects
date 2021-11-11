@@ -1,8 +1,8 @@
-import Main from '../Main';
+import { Main } from '../Main';
 
 export default [
 	{
-		path: '/main',
+		path: '/',
 		component: Main,
 		exact: true,
 		name: 'main'

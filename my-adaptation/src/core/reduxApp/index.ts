@@ -1,32 +1,49 @@
-import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import { composeWithDevTools } from 'redux-devtools-extension';
-const sagaMiddleware = createSagaMiddleware();
+import { configStore } from './configStore';
+import { configReducers } from './configReducers';
+import { configSaga } from './configSagas';
+import { History, createHashHistory } from 'history';
+import { configMiddleware } from './configMiddlewares';
+import { CaseReducer } from '@reduxjs/toolkit';
+import { configRoutes } from './configRoutes';
 
-export interface IState {
-	cash: number;
-	total: number;
-}
-
-const initialState: IState = {
-	cash: 0,
-	total: 0
+type ConfigRedux = {
+	initState: { [k in string]: any };
 };
 
-const reducer = (state: IState = initialState, action: any): IState => {
-	switch (action.type) {
-		case 'ADD':
-			return {
-				...state,
-				cash: state.cash + action.payload,
-				total: state.cash + action.payload
-			};
-		default:
-			return state;
+type ConfigStore = {
+	initState: { [k in string]: any };
+	history: History;
+	middlewares: any[];
+	reducers: { [k in string]: CaseReducer };
+};
+
+export default ({ initState }: ConfigRedux) => {
+	const sagaMiddleware = createSagaMiddleware();
+	const reducers = configReducers();
+	const routes = configRoutes();
+	const middlewares = configMiddleware(sagaMiddleware);
+	const history = createHashHistory();
+
+	const storeConfiguration: ConfigStore = {
+		initState,
+		reducers,
+		middlewares,
+		history
+	};
+
+	const store = configStore(storeConfiguration);
+
+	function runSagas() {
+		sagaMiddleware.run(configSaga());
 	}
+
+	runSagas();
+
+	return { store, routes, history };
 };
 
-export const store = createStore(
-	reducer,
-	composeWithDevTools(applyMiddleware(sagaMiddleware))
-);
+// export const store = createStore(
+// 	reducer,
+// 	composeWithDevTools(applyMiddleware(sagaMiddleware))
+// );

@@ -1,0 +1,11 @@
+@mixin set-spaces($unit) {
+    @each $name, $value in $SPACES {
+        @include spaces($unit, $name, $value);
+    }
+}
+
+@mixin spaces($unit: "margin", $name: "m", $value) {
+    &.#{$unit}-#{$name} {
+        #{$unit}: $value;
+    }
+}

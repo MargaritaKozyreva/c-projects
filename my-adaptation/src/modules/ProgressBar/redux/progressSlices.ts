@@ -3,20 +3,20 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export type ProgressState = {
 	loading: boolean;
-	progressData: {
-		progress: ProgressDTO.Progress;
-		steps: ProgressDTO.Step[];
-	};
+	data: ProgressDTO.Progress;
 };
 
-const initialState: ProgressState = {
-	loading: false,
-	progressData: {
-		progress: {
+export interface IProgressInitialState {
+	progress: ProgressState;
+}
+
+export const initialState: IProgressInitialState = {
+	progress: {
+		loading: true,
+		data: {
 			percent: 0,
 			endDate: ''
-		},
-		steps: []
+		}
 	}
 };
 
@@ -25,17 +25,17 @@ const progressSlices = createSlice({
 	initialState,
 	reducers: {
 		getProgressRequest: (state) => {
-			state.loading = true;
+			state.progress.loading = true;
 		},
 		getProgressSuccess: (
 			state,
-			action: PayloadAction<ProgressState['progressData']>
+			action: PayloadAction<ProgressDTO.Progress>
 		) => {
-			state.loading = false;
-			state.progressData = action.payload;
+			state.progress.loading = false;
+			state.progress.data = action.payload;
 		},
 		getProgressError: (state, action) => {
-			state.loading = false;
+			state.progress.loading = false;
 		}
 	}
 });

@@ -1,0 +1,84 @@
+@include get-content {
+
+    /**
+    * state
+    */
+
+    --color-state-success: #4caf50;
+    --color-state-error: #f44336;
+    --color-state-attention: #fdd835;
+
+    /**
+     * color-green
+     */
+
+    --color-green-100: #005a28;
+    --color-green-80: #1e8737;
+    --color-green-60: #5faf2d;
+    --color-green-40: #ade25c;
+    --color-green-20: #d7f3a5;
+    --color-green-10: #ebf9d2;
+    --color-green-gradient: linear-gradient(97.57deg, #72bf44 0%, #1e8737 100%);
+
+    /**
+     * color-gray
+     */
+
+    --color-gray-100: #222429;
+    --color-gray-90: #2a2e33;
+    --color-gray-80: #3b4047;
+    --color-gray-70: #50565e;
+    --color-gray-60: #6c737d;
+    --color-gray-50: #9299a4;
+    --color-gray-40: #b4bbc6;
+    --color-gray-30: #cfd4dc;
+    --color-gray-20: #e1e5eb;
+    --color-gray-10: #eff1f5;
+    --color-gray-05: #f6f6f8;
+
+
+    /**
+     * color-white
+     */
+
+    --color-white: #ffffff;
+
+    /**
+     * color-accent
+     */
+
+    --color-accent-100: #1976d2;
+    --color-accent-90: #1565c0;
+    --color-accent-80: #1976d2;
+    --color-accent-70: #1e88e5;
+    --color-accent-60: #2196f3;
+    --color-accent-50: #42a5f5;
+    --color-accent-40: #64b5f6;
+    --color-accent-30: #90caf9;
+    --color-accent-20: #bbdefb;
+    --color-accent-10: #e3f2fd;
+
+    /**
+     * color-additional-blue
+     */
+
+    --color-additional-blue-dark: #0e75d6;
+    --color-additional-blue-middle: #4da9ff;
+    --color-additional-blue-light: #80c1ff;
+
+    /**
+     * color-additional-red
+     */
+
+    --color-additional-red-dark: #b80d00;
+    --color-additional-red-middle: #eb1000;
+    --color-additional-red-light: #ff493c;
+
+    /**
+     * color-additional-yellow
+     */
+
+    --color-additional-yellow-dark: #ffa800;
+    --color-additional-yellow-middle: #fdcb19;
+    --color-additional-yellow-light: #fee281;
+}

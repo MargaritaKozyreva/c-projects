@@ -1,0 +1,29 @@
+@import '../../design/tokens/root';
+
+.typography {
+    color: var(--color-gray-100);
+
+    &--h1 {
+        font-size: var(--font-size-2xl);
+    }
+
+    &--h2 {
+        font-size: var(--font-size-xl);
+    }
+
+    &--h3 {
+        font-size: var(--font-size-l);
+    }
+
+    &--h4 {
+        font-size: var(--font-size-m);
+    }
+
+    &--h5 {
+        font-size: var(--font-size-s);
+    }
+
+    &--h6 {
+        font-size: var(--font-size-xs);
+    }
+}

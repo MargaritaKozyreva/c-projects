@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import { Provider, useDispatch, useSelector } from 'react-redux';
-import { IState, store } from './src/core/reduxApp';
-import Main from './src/pages/Main';
+import { Provider } from 'react-redux';
+import reduxApp from './src/core/reduxApp';
+import { Main } from './src/pages/Main';
+import './src/prebuild/scss/index.scss';
 
-ReactDom.render(
-	<Provider store={ store }>
-		<Main />
-	</Provider>,
-	document.getElementById('my-adaptation')
-);
+const App = () => {
+	const initState = {};
+
+	const { store, routes, history } = reduxApp({ initState });
+	console.log(store);
+
+	return (
+		<Provider store={ store }>
+			<Main />
+		</Provider>
+	);
+};
+
+ReactDom.render(<App />, document.getElementById('my-adaptation'));
