@@ -3,8 +3,8 @@ import { httpService } from '@core/httpService/service';
 import { AxiosPromise } from 'axios';
 
 class _LearnTableContext {
-	getEducationList(): AxiosPromise<LearnTableDTO.LearnListData> {
-		return httpService.get('educations');
+	getEducationListByStepId(id: number): any {
+		return httpService.get(`apaptation&action=getListByStepId&id=${ id }`);
 	}
 }
 

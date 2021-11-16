@@ -3,7 +3,7 @@ import axios, { AxiosResponse, AxiosPromise, Method } from 'axios';
 import { _url } from './service-tools';
 
 const httpService = axios.create({
-	baseURL: 'https://605109e453460900176711bc.mockapi.io/',
+	baseURL: 'https://clever.x5.ru/',
 });
 
 

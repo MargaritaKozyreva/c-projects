@@ -1,4 +1,4 @@
-import { getEducationsById } from '@core/features/educationList/thunks/getEducationsById';
+import { learnTableActions } from '@modules/LearnTable/redux/learnTableSlices';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { ProgressDTO } from '../../dataContext/ProgressDTO.dto';
@@ -21,7 +21,9 @@ const Steps: React.FC<Props> = (props) => {
 						<ProgressStep
 							key={ step.num }
 							step={ step }
-							onClick={ dispatch(getEducationsById(step.num)) }
+							onClick={ () => {
+								dispatch(learnTableActions.getEducationListById(step.num));
+							} }
 						/>
 					)) }
 				</>

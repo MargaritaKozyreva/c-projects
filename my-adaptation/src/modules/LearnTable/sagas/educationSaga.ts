@@ -15,16 +15,15 @@ export type SagaDataRequest<D> = Generator<
 	AxiosResponse<D>
 >;
 
-const LearnTableSaga =
-	function* (): SagaDataRequest<LearnTableDTO.LearnListData[]> {
-		try {
-			const { data } = yield call(LearnTableContext.getEducationList); // вызываем функцию getEducationList
-			yield put(learnTableActions.getEducationSuccess(data)); // put - аналог диспатча. Отправляем данные в стор
-		} catch (e) {
-			yield put(learnTableActions.getEducationError(e));
-		}
-	};
+function* LearnTableSaga(action: any): SagaDataRequest<LearnTableDTO.LearnListData[]> {
+	try {
+		const { data } = yield call(LearnTableContext.getEducationListByStepId(action.payload));
+		yield put(learnTableActions.getEducationSuccess(data))
+	} catch (error) {
+		yield put(learnTableActions.getEducationError(error))
+	}
+}
 
 export default function* () {
-	yield takeEvery(learnTableActions.getEducationRequest, LearnTableSaga);
+	yield takeEvery(learnTableActions.getEducationListById, LearnTableSaga);
 }
