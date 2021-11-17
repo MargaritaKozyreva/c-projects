@@ -25,6 +25,17 @@ const LearnTableSaga =
 		}
 	};
 
+// @ts-ignore
+function* educationItemSaga(action) {
+	try {
+		const { data } = yield call(LearnTableContext.getEducationById, action.payload);
+		yield put(learnTableActions.getEducationSuccess(data));
+	} catch (e) {
+		yield put(learnTableActions.getEducationError(e))
+	}
+}
+
 export default function* () {
 	yield takeEvery(learnTableActions.getEducationRequest, LearnTableSaga);
+	yield takeEvery(learnTableActions.getEducationById, educationItemSaga);
 }

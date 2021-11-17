@@ -1,6 +1,7 @@
 import { BaseModule } from '../allModules';
 import { learnTableReducers } from './redux/learnTableSlices';
 import LearnTableSaga from './sagas/educationSaga';
+
 class _learnTableModule implements BaseModule {
 	readonly name = 'learnTable';
 

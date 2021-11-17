@@ -10,6 +10,7 @@ interface Props {
 const Table: React.FC<Props> = (props) => {
 	const { headers, rows } = props;
 	console.log(rows);
+	
 	return (
 		<table>
 			<thead>

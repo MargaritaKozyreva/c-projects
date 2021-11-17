@@ -28,6 +28,9 @@ const learnTableSlices = createSlice({
 		getEducationRequest: (state, action) => {
 			state.loading = true;
 		},
+		getEducationById: (state, action) => {
+			state.loading = true;
+		},
 		getEducationSuccess: (
 			state,
 			action: PayloadAction<learnTableState['learnListData']>
@@ -37,7 +40,7 @@ const learnTableSlices = createSlice({
 		},
 		getEducationError: (state, action) => {
 			state.loading = false;
-		}
+		},
 	},
 	extraReducers: (builder) => {
 		builder.addCase(getEducationsById.fulfilled, (state, action) => {
