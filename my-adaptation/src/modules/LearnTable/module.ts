@@ -1,7 +1,8 @@
 import { BaseModule } from '../allModules';
 import { learnTableReducers } from './redux/learnTableSlices';
 import LearnTableSaga from './sagas/educationSaga';
-class _learnTableModule implements BaseModule {
+import routes from './routes';
+class LearnTableModule implements BaseModule {
 	readonly name = 'learnTable';
 
 	getMiddlewares() {
@@ -19,8 +20,8 @@ class _learnTableModule implements BaseModule {
 	}
 
 	getRoutes() {
-		return [];
+		return routes;
 	}
 }
 
-export const learnTableModule = new _learnTableModule();
+export const learnTableModule = new LearnTableModule();

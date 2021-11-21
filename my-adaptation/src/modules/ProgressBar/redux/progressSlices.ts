@@ -24,7 +24,7 @@ const progressSlices = createSlice({
 	name: 'progressSlice',
 	initialState,
 	reducers: {
-		getProgressRequest: (state) => {
+		getProgressFetch: (state) => {
 			state.progress.loading = true;
 		},
 		getProgressSuccess: (

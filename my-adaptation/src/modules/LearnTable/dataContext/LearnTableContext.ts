@@ -2,10 +2,11 @@ import { LearnTableDTO } from '../dataContext/LearnTableDTO.dto';
 import { httpService } from '@core/httpService/service';
 import { AxiosPromise } from 'axios';
 
-class _LearnTableContext {
-	getEducationListByStepId(id: number): any {
-		return httpService.get(`apaptation&action=getListByStepId&id=${ id }`);
+class LearnTableContext {
+	getEducationListByStepNumber(stepNum: number = 1): any {
+		const data = httpService('GET', 'getListByStepId', `step_num=${ String(stepNum) }`);
+		return data;
 	}
 }
 
-export const LearnTableContext = new _LearnTableContext();
+export const learnTableContext = new LearnTableContext();

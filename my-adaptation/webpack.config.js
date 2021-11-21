@@ -5,6 +5,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+const targetUrl = 'https://clever.x5.ru';
+
 const PATHS = {
 	build: path.join(__dirname, 'build'),
 	dev: path.join(__dirname, 'dist')
@@ -24,7 +26,7 @@ const webpackConfig = (env, args) => {
 				'@modules': path.resolve(__dirname, './src/modules'),
 				'@components': path.resolve(__dirname, './src/components/'),
 				'@icons': path.resolve(__dirname, './src/ui/components/icons'),
-				'@ui': path.resolve(__dirname, './src/ui'),
+				'@ui': path.resolve(__dirname, './src/ui')
 			}
 		},
 		output: {
@@ -35,7 +37,7 @@ const webpackConfig = (env, args) => {
 		devServer: {
 
 			static: {
-				directory: path.join(__dirname, 'public'),
+				directory: path.join(__dirname, 'public')
 			},
 
 			port: 4200,
@@ -57,7 +59,7 @@ const webpackConfig = (env, args) => {
 				},
 				{
 					test: /\.css$/,
-					use: ['style-loader', 'css-loader'],
+					use: ['style-loader', 'css-loader']
 				},
 				{
 					test: /\.scss$/,
@@ -65,20 +67,20 @@ const webpackConfig = (env, args) => {
 						'style-loader',
 						'css-modules-typescript-loader?modules',
 						{
-							loader: 'css-loader',
+							loader: 'css-loader'
 						},
-						'sass-loader',
-					],
+						'sass-loader'
+					]
 				},
 				{
 					test: /\.(jpe?g|png|gif)$/i,
 					use: {
-						loader: 'file-loader',
+						loader: 'file-loader'
 					}
 				},
 				{
 					test: /\.svg$/,
-					use: ['@svgr/webpack'],
+					use: ['@svgr/webpack']
 				},
 				{
 					test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
@@ -87,11 +89,11 @@ const webpackConfig = (env, args) => {
 							loader: 'file-loader',
 							options: {
 								name: '[name].[ext]',
-								outputPath: 'fonts/',
-							},
-						},
-					],
-				},
+								outputPath: 'fonts/'
+							}
+						}
+					]
+				}
 			]
 		},
 		plugins: [
@@ -99,9 +101,9 @@ const webpackConfig = (env, args) => {
 				template: './index.html'
 			}),
 			new MiniCssExtractPlugin({
-				filename: '[name].[hash].css',
+				filename: '[name].[hash].css'
 			}),
-			new CleanWebpackPlugin(),
+			new CleanWebpackPlugin()
 		]
 	};
 };

@@ -1,22 +1,9 @@
 const dev = process.env['NODE_ENV'] === 'development';
-const _url = (objectID: any, action: any) => {
-	let modePart = '';
-
-	if (action) {
-		modePart = `&action=${ action }`;
-	}
-
+const _url = (action: any, query: any = '') => {
 	if (dev) {
-		return `https://test-clever.x5.ru/custom_web_template.html?object_id=${ objectID }${ modePart }`;
+		return `https://clever.x5.ru/adaptation?action=${ action }&${ query }`;
 	}
-	return `/custom_web_template.html?object_id=${ objectID }${ modePart }`;
+	return `/adaptation?action=${ action }&${ query }`;
 };
 
-const root = (part: any) => {
-	if (dev) {
-		return `https://test-clever.x5.ru/${ part }`;
-	}
-	return `${ part }`;
-};
-
-export { _url, root };
+export { _url };

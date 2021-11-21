@@ -2,15 +2,6 @@ import React, { HTMLAttributes, ReactNode } from 'react';
 import cn from 'classnames';
 import './styles.scss';
 
-// export interface Props extends React.DetailedHTMLFactory<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement> {
-// 	className?: string;
-// 	children?: React.ReactNode;
-// 	size?: 'xs' | 's' | 'm';
-// 	type?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
-// 	weight: 'regular' | 'medium';
-// 	uppercase?: boolean;
-// }
-
 export interface Props {
 	className?: string;
 	children?: React.ReactNode;

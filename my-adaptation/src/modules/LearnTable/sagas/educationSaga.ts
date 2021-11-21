@@ -1,7 +1,7 @@
-import { takeEvery, put, call, StrictEffect } from 'redux-saga/effects';
+import { throttle, put, call, StrictEffect } from 'redux-saga/effects';
 import { LearnTableDTO } from '../dataContext/LearnTableDTO.dto';
 // import { LearnTableContext } from '../dataContext/mockApi/LearnTableContext';
-import { LearnTableContext } from '../dataContext/LearnTableContext';
+import { learnTableContext } from '../dataContext/LearnTableContext';
 
 import {
 	learnTableActions,
@@ -17,13 +17,22 @@ export type SagaDataRequest<D> = Generator<
 
 function* LearnTableSaga(action: any): SagaDataRequest<LearnTableDTO.LearnListData[]> {
 	try {
-		const { data } = yield call(LearnTableContext.getEducationListByStepId(action.payload));
-		yield put(learnTableActions.getEducationSuccess(data))
+		const { data } = yield call(() =>
+			learnTableContext.getEducationListByStepNumber(action.payload));
+		yield put(learnTableActions.getEducationSuccess(data));
+		yield put(learnTableActions.pushEducationListInHistory({
+			stepNum: action.payload,
+			data
+		}));
 	} catch (error) {
-		yield put(learnTableActions.getEducationError(error))
+		yield put(learnTableActions.getEducationError(error));
 	}
 }
 
 export default function* () {
-	yield takeEvery(learnTableActions.getEducationListById, LearnTableSaga);
+	yield throttle(
+		2000,
+		learnTableActions.getEducationListByStepNumber,
+		LearnTableSaga
+	);
 }

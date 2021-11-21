@@ -1,6 +1,7 @@
 import { learnTableActions } from '@modules/LearnTable/redux/learnTableSlices';
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { ProgressDTO } from '../../dataContext/ProgressDTO.dto';
 import ProgressStep from './ProgressStep';
 import './styles.scss';
@@ -18,13 +19,15 @@ const Steps: React.FC<Props> = (props) => {
 			{ stepsData.length > 0 ? (
 				<>
 					{ stepsData.map((step: any) => (
-						<ProgressStep
-							key={ step.num }
-							step={ step }
-							onClick={ () => {
-								dispatch(learnTableActions.getEducationListById(step.num));
-							} }
-						/>
+						<Link to="/my_adaptation" key={ step.num }>
+							<ProgressStep
+								key={ step.num }
+								step={ step }
+								onClick={ () => {
+									dispatch(learnTableActions.getEducationListByStepNumber(step.num));
+								} }
+							/>
+						</Link>
 					)) }
 				</>
 			) : (

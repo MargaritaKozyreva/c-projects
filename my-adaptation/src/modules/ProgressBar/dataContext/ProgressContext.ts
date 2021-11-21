@@ -5,17 +5,14 @@ import {
 	ResponseResult
 } from '../../../core/httpService/service';
 import { AxiosPromise } from 'axios';
-class _ProgressContext {
+class ProgressContext {
 	getUserProgress(): ResponseResult<ProgressDTO.Progress> {
-		return httpServiceMock<ProgressDTO.Progress>({
-			percent: 50,
-			endDate: '01.01.2021'
-		});
+		return httpService('GET', 'getUserProgress');
 	}
 
 	getSteps(): AxiosPromise<ProgressDTO.Step[]> {
-		return httpService.get('apaptation?action=getListByStepId');
+		return httpService('GET', 'getSteps');
 	}
 }
 
-export const ProgressContext = new _ProgressContext();
+export const progressContext = new ProgressContext();

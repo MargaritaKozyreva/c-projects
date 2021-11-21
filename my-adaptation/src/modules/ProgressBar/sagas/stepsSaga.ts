@@ -1,6 +1,6 @@
 import { takeEvery, put, call, StrictEffect } from 'redux-saga/effects';
 import { ProgressDTO } from '../dataContext/ProgressDTO.dto';
-import { ProgressContext } from '../dataContext/ProgressContext';
+import { progressContext } from '../dataContext/ProgressContext';
 import { stepsActions } from '../redux/stepsSlices';
 import { AxiosResponse } from 'axios';
 
@@ -12,7 +12,7 @@ export type SagaDataRequest<D> = Generator<
 
 const getStepsSaga = function* (): SagaDataRequest<ProgressDTO.Step[]> {
 	try {
-		const { data } = yield call(ProgressContext.getSteps);
+		const { data } = yield call(progressContext.getSteps);
 		yield put(stepsActions.getStepsSuccess(data));
 	} catch (e) {
 		yield put(stepsActions.getStepsError(e));

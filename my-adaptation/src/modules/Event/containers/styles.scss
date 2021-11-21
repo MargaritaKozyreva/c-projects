@@ -1,0 +1,11 @@
+.event-card {
+    &.zone {
+        align-items: baseline;
+    }
+    & span.text {
+        margin-bottom: 20px;
+    }
+    &__card-zone-footer{
+        width: 50%;
+    }
+}

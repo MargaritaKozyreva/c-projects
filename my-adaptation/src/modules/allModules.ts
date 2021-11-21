@@ -3,6 +3,7 @@ import { RouteProps } from 'react-router';
 import { ForkEffect } from 'redux-saga/effects';
 import { progressModule } from './ProgressBar/module';
 import { learnTableModule } from './LearnTable/module';
+import { eventModule } from './Event/module';
 
 export interface IRouter extends Omit<RouteProps, 'path'> {
 	name: string;
@@ -23,4 +24,8 @@ export interface BaseModule {
 	getMiddlewares: () => MiddlewaresType;
 }
 
-export const allModules: BaseModule[] = [progressModule, learnTableModule];
+export const allModules: BaseModule[] = [
+	progressModule,
+	learnTableModule,
+	eventModule
+];

@@ -2,26 +2,29 @@
 import axios, { AxiosResponse, AxiosPromise, Method } from 'axios';
 import { _url } from './service-tools';
 
-const httpService = axios.create({
-	baseURL: 'https://clever.x5.ru/',
-});
-
+type ResponseResult<Result> = Promise<AxiosResponse<Result>>;
+type HttpServiceMock = <D>(mockData: D) => ResponseResult<D>;
 
 /**
  * Функция обращения к серверу (GET запрос)
  * @param url - адрес API, к которому необходимо обратиться
  * @returns - данные ответа
  */
-const _httpService = async(method: Method, backend_address_id: string, action: string, data: any) => {
+const httpService = async <T>(
+	method: Method,
+	action: string,
+	query?: string,
+	data?: any
+) => {
 	try {
-		const response: AxiosResponse = await axios({
+		const response: AxiosResponse<T> = await axios({
 			method: method,
-			url: _url(backend_address_id, action),
+			baseURL: _url(action, query),
 			withCredentials: true,
-			data: JSON.stringify(data),
+			data: JSON.stringify(data)
 		});
 		return {
-			data: response.data.data,
+			data: response.data as T,
 			status: response.status,
 			statusText: response.statusText,
 			headers: response.headers,
@@ -31,11 +34,6 @@ const _httpService = async(method: Method, backend_address_id: string, action: s
 		throw new Error('Bad Request! ' + e);
 	}
 };
-
-
-type ResponseResult<Result> = Promise<AxiosResponse<Result>>;
-
-type HttpServiceMock = <D>(mockData: D) => ResponseResult<D>;
 
 const httpServiceMock: HttpServiceMock = (mockData) => {
 	return new Promise((resolve) => {
