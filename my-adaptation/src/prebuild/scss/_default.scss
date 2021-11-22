@@ -1,3 +1,12 @@
 html {
     overflow-x: hidden;
 }
+a,
+a:hover {
+    text-decoration: none;
+    color: var(--color-gray-60);
+}
+
+button:focus {
+     outline: none
+}

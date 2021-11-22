@@ -19,7 +19,7 @@ const Steps: React.FC<Props> = (props) => {
 			{ stepsData.length > 0 ? (
 				<>
 					{ stepsData.map((step: any) => (
-						<Link to="/my_adaptation" key={ step.num }>
+						<Link to="/adaptation" key={ step.num }>
 							<ProgressStep
 								key={ step.num }
 								step={ step }
@@ -31,7 +31,7 @@ const Steps: React.FC<Props> = (props) => {
 					)) }
 				</>
 			) : (
-				<div>...loading...</div>
+				<div>...loading1...</div>
 			) }
 		</div>
 	);

@@ -2,13 +2,18 @@
     max-width: 100%;
     margin: 13px 0;
 }
-
+.accordion-visible:hover {
+    border-color: #ffffff;
+    background-color: #ffffff;
+    color: #333;
+}
 .accordion-visible {
     background: #ffffff;
     border: 1px solid #ffffff;
     border-radius: 16px 16px 16px 16px;
     width: 100%;
     cursor: pointer;
+    color: #333;
     display: flex;
     justify-content: space-between;
     align-items: center;

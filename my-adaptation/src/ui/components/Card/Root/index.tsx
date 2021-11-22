@@ -1,9 +1,9 @@
 import React from 'react';
-import { CardContext } from '../context';
 import Zone from '../Zone';
 import { Layout } from '../Layout';
 import { Content } from '../Content';
 import './styles.scss';
+import cn from 'classnames';
 
 export interface Props extends HTMLAttributesProps {
 	children?: React.ReactNode;
@@ -19,11 +19,15 @@ interface HTMLAttributesProps {
 
 const Card = ({ children, design = 'default', className }: Props) => {
 	return (
-		<CardContext.Provider value={ {} }>
-			<Layout className={ className } design={ design }>
-				{ children }
-			</Layout>
-		</CardContext.Provider>
+		<Layout
+			className={ cn('layout', {
+				'layout--default': design === 'default',
+				'layout--success': design === 'success'
+			}) }
+			design={ design }
+		>
+			{ children }
+		</Layout>
 	);
 };
 

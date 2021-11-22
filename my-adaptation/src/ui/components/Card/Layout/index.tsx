@@ -1,6 +1,6 @@
 import React, { CSSProperties } from 'react';
-import './styles.scss';
 import cn from 'classnames';
+import './styles.scss';
 
 export interface Props extends HTMLAttributesProps {
 	children?: React.ReactNode;
@@ -24,13 +24,17 @@ const Layout: React.FC<Props> = (props) => {
 		return style;
 	};
 
-	const setDefaultClassName = (props: Props) => {
-		return cn('layout', `layout--${ props.design || 'default' }`, props.className);
-	};
-
 	const { children, ...attrs } = props;
 	return (
-		<div className={ setDefaultClassName(props) } style={ setDefaultStyle(props) } { ...attrs }>
+		<div
+			className={ cn(
+				'layout',
+				`layout--${ props.design || 'default' }`,
+				props.className
+			) }
+			style={ setDefaultStyle(props) }
+			{ ...attrs }
+		>
 			{ children }
 		</div>
 	);

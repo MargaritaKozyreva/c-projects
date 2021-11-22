@@ -5,4 +5,11 @@
     font-size: var(--font-size-xl);
 
     @include set-spaces("margin");
+    
+    &--line-top{
+        border-top: 1px solid var(--color-gray-20);
+    }
+    &--line-bottom{
+        border-bottom: 1px solid var(--color-gray-20);
+    }
 }

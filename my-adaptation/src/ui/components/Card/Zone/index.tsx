@@ -7,6 +7,7 @@ export interface Props {
 	children?: React.ReactNode;
 	direction?: 'row' | 'column';
 	margin?: 'none' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl';
+	line?: 'top' | 'bottom';
 	alignItems?:
 		| 'normal'
 		| 'inherit'
@@ -40,8 +41,16 @@ const Zone: React.FC<Props> = (props) => {
 	};
 
 	const setDefaultClassName = (props: Props) => {
-		const { className, margin = 'm' } = props;
-		const style = cn('zone', `margin-${ margin }`, className);
+		const { className, margin = 'm', line } = props;
+		const style = cn(
+			'zone',
+			`margin-${ margin }`,
+			{
+				'zone--line-top': line === 'top',
+				'zone--line-bottom': line === 'bottom'
+			},
+			className
+		);
 		return style;
 	};
 

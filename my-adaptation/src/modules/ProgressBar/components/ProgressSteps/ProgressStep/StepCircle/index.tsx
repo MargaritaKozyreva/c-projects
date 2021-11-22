@@ -12,7 +12,7 @@ const StepCircle: React.FC<Props> = (props) => {
 	const { type = 'locked' } = props;
 	return (
 		<div className={ cn('step-circle', type) }>
-			{ type === 'locked' && <LockIcon/> }
+			{ type === 'locked' && <LockIcon /> }
 		</div>
 	);
 };
