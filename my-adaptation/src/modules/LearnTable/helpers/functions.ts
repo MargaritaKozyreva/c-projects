@@ -1,9 +1,9 @@
 import { LearnTableDTO } from '../dataContext/LearnTableDTO.dto';
 enum StatusColor {
-	'IN PROGRESS' = 1,
-	'FINISHED' = 2,
-	'FAIL' = 3,
-	'SUCCESS' = 4
+	'progress' = 1,
+	'finished' = 2,
+	'fail' = 3,
+	'success' = 4
 }
 enum EventStatus {
 	'Не записан' = 0,
@@ -60,5 +60,9 @@ export const setState = (item: LearnTableDTO.ITableItem) => {
 		default:
 			null;
 	}
-	return { status, color: StatusColor[item.state] };
+	return { status, statusColor: StatusColor[item.state] };
 };
+
+
+//TODO Как присвоить дийствие кнопке в зависимости от статуса?
+//Например мне нужно открывать модальное окно с календарем если есть статус записи на мероприятие в кнопке
