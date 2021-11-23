@@ -1,10 +1,17 @@
 ﻿.table-clever {
   width: 100%;
   padding: 0px;
-  margin: 0px;
+  border-spacing: 0px 10px;
+  margin: 0;
+
 
   & > thead > tr {
-    background: #E1E5EB;
+    background: #e1e5eb;
+    border-radius: 16px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -khtml-border-radius: 16px;
+    border: 1px solid initial;
 
     & > th {
       font-size: 1rem;
@@ -13,7 +20,7 @@
       line-height: 24px;
       letter-spacing: 0px;
       padding: 16px;
-      
+
       &:first-child {
         border-radius: 16px 0px 0px 16px;
         padding: 16px 16px 16px 32px;
@@ -27,11 +34,10 @@
   }
 
   & > tbody > tr {
-    background: #FFFFFF;
+    background: #ffffff;
     filter: drop-shadow(0px 1px 13px rgba(0, 0, 0, 0.08));
 
     & > td {
-      font-size: 1rem;
       font-style: normal;
       font-weight: normal;
       line-height: 24px;

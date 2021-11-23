@@ -34,6 +34,16 @@ const stepsSlices = createSlice({
 		},
 		getStepsError: (state, action) => {
 			state.steps.loading = false;
+		},
+		changeSteps: (state, action) => {
+			const oldCurrentStep: ProgressDTO.Step | undefined =
+				state.steps.data[0]?.data.filter((step) => step.stepState === 'selected')[0];
+			const currentStep: ProgressDTO.Step | undefined =
+				state.steps.data[0]?.data.filter((step) => step.num === action.payload)[0];
+			if (currentStep && oldCurrentStep) {
+				oldCurrentStep.stepState = 'active';
+				currentStep.stepState = 'selected';
+			}
 		}
 	}
 });

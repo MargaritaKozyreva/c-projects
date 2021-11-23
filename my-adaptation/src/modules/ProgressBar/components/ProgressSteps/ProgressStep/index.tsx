@@ -3,21 +3,24 @@ import { ProgressDTO } from 'src/modules/ProgressBar/dataContext/ProgressDTO.dto
 import cn from 'classnames';
 import './styles.scss';
 import StepCircle from './StepCircle';
+import { Link } from 'react-router-dom';
 
 interface Props {
 	step: ProgressDTO.Step;
-	onClick?: MouseEventHandler<HTMLSpanElement>;
+	onClick?: any;
+	href?: any;
 }
 
 const ProgressStep: React.FC<Props> = (props) => {
 	const { step, onClick } = props;
 	return (
-		<div
+		<Link
+			to="/adaptation"
 			onClick={ onClick }
 			className={ cn('progress-step', {
-				'step-success': step.stepState === 'selected',
-				'step-default': step.stepState !== 'selected',
-				'step-locked': step.stepState === 'locked'
+				'progress-step__success': step.stepState === 'selected',
+				'progress-step__default': step.stepState !== 'selected',
+				'progress-step__locked': step.stepState === 'locked'
 			}) }
 		>
 			<p>{ step.num } этап</p>
@@ -25,7 +28,7 @@ const ProgressStep: React.FC<Props> = (props) => {
 			<div className="progress-step__date">
 				<span>{ step.dateStart }</span> - <span>{ step.dateEnd }</span>
 			</div>
-		</div>
+		</Link>
 	);
 };
 

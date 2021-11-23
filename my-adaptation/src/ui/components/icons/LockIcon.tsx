@@ -3,7 +3,7 @@ import React from 'react';
 export const LockIcon: React.FC = () => {
 	return (
 		<svg
-			width="14"
+			width="25"
 			height="16"
 			viewBox="0 0 14 16"
 			fill="none"

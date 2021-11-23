@@ -3,8 +3,9 @@ export namespace LearnTableDTO {
 		id: string | number;
 		clever: number;
 		name: string;
-		state: number;
-		type: string;
+		state: 0 | 1 | 2 | 3 | 4;
+		date_start?: string;
+		type: 'event' | 'course' | 'assessment' | 'task' | 'video';
 		action: {
 			text: string;
 			action: string;

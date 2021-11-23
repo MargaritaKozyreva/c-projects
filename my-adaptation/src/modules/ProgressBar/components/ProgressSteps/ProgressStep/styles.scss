@@ -7,7 +7,7 @@
     padding: 8px 20px;
     box-sizing: border-box;
 
-    &.step-success {
+    &__success {
         color: #4CB75B;
         background: #EFF1F5;
         border: 1px solid #E1E5EB;
@@ -15,8 +15,12 @@
         border-radius: 16px;
     }
 
-    &.step-default {
+    &__default {
         color: #9299A4;
+    }
+
+    &__locked {
+        pointer-events: none;
     }
 
     &.selected {

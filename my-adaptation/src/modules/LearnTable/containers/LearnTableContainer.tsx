@@ -9,6 +9,8 @@ import Button from '@ui/components/Button';
 import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Accordion } from '@ui/components/Accordion';
+import { setState } from '../helpers/functions';
+import { Cheap } from '@ui/components/Cheap';
 interface IState {
 	learnTable: {
 		loading: boolean;
@@ -47,13 +49,14 @@ const LearnTableContainer: React.FC = () => {
 							</Table.Row>
 						</Table.Head>
 						<Table.Body>
-							
 							{ block.list.map((listItem: LearnTableDTO.ITableItem) => (
 								<Table.Row key={ listItem.id }>
 									<Table.Cell>{ listItem.type }</Table.Cell>
 									<Table.Cell>{ listItem.clever }</Table.Cell>
 									<Table.Cell>{ listItem.name }</Table.Cell>
-									<Table.Cell>{ listItem.state }</Table.Cell>
+									<Table.Cell>
+										<Cheap>{ setState(listItem).status || '' }</Cheap>
+									</Table.Cell>
 									<Table.Cell>
 										<Link
 											to={ `${ url.pathname }/${ listItem.type }/${ listItem.id }` }

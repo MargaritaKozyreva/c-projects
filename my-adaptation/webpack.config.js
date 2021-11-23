@@ -23,7 +23,7 @@ module.exports = {
 	output: {
 		path: path.join(__dirname, 'build'),
 		publicPath: 'auto',
-		filename: 'main.[hash].js',
+		filename: 'bundle.js',
 	},
 	devServer: {
 		static: {
