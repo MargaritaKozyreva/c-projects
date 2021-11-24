@@ -33,9 +33,17 @@ enum TaskStatus {
 	'Выполнено' = 4
 }
 
+enum EducationItemTitleRU {
+	'course' = 'Курс',
+	'assessment' = 'Тест',
+	'event' = 'Мероприятие',
+	'task' = 'Задание',
+	'video' = 'Видео'
+}
+
 export const setState = (item: LearnTableDTO.ITableItem) => {
 	let status = null;
-	
+
 	switch (item.type) {
 		case 'event':
 			status = EventStatus[item.state];
@@ -60,9 +68,12 @@ export const setState = (item: LearnTableDTO.ITableItem) => {
 		default:
 			null;
 	}
-	return { status, statusColor: StatusColor[item.state] };
+	return {
+		status,
+		statusColor: StatusColor[item.state],
+		titleRU: EducationItemTitleRU[item.type]
+	};
 };
-
 
 //TODO Как присвоить дийствие кнопке в зависимости от статуса?
 //Например мне нужно открывать модальное окно с календарем если есть статус записи на мероприятие в кнопке

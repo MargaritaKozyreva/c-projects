@@ -9,7 +9,7 @@ class CourseContext {
 		return httpServiceMock<Array<CourseDTO.ICourse>>([
 			{
 				id: id,
-				title: 'Курс',
+				title: 'Основы санитарии и гигиены',
 				state: 4,
 				plan_finish_date: '21.11.2021',
 				start_usage_date: '15.11.2021',
@@ -20,7 +20,7 @@ class CourseContext {
 					parts: [
 						{
 							id: 1314524,
-							title: 'Module 1',
+							title: '1. Видеокурс. Должнстная инструкция для СПЗП. Ч.1',
 							type: 'lesson',
 							desc: 'description',
 							state_id: 1,
@@ -30,7 +30,7 @@ class CourseContext {
 						},
 						{
 							id: 1304524,
-							title: 'Module 2',
+							title: '2. Видеокурс. Должнстная инструкция для СПЗП. Ч. 2',
 							type: 'resource',
 							desc: 'description',
 							state_id: 0,

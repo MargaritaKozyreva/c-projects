@@ -4,7 +4,7 @@ import { ForkEffect } from 'redux-saga/effects';
 import { progressModule } from './ProgressBar/module';
 import { learnTableModule } from './LearnTable/module';
 import { eventModule } from './Event/module';
-
+import { courseModule } from './Course/module';
 export interface IRouter extends Omit<RouteProps, 'path'> {
 	name: string;
 	path: string;
@@ -27,5 +27,6 @@ export interface BaseModule {
 export const allModules: BaseModule[] = [
 	progressModule,
 	learnTableModule,
-	eventModule
+	eventModule,
+	courseModule
 ];

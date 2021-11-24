@@ -20,6 +20,6 @@ function* getCourseById(action: any): SagaDataRequest<{ data: CourseDTO.ICourse[
 	}
 }
 
-export default function* () {
+export function* courseSaga() {
 	yield takeEvery(courseActions.getCourseByIdPending, getCourseById);
 }

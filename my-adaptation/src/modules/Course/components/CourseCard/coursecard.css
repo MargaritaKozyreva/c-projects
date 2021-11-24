@@ -1,0 +1,72 @@
+.buttons_right {
+    padding: 0 20px 0 0;
+    float: right;
+
+}
+
+.backward {
+    font-family: Roboto;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+    font-variant: small-caps;
+    color: #9299A4;
+    padding: 30px 0 30px 30px;
+}
+
+
+.button_padding {
+    padding: 0px 8px;
+    float: left;
+}
+
+.table_padding {
+    padding: 25px 20px;
+
+}
+
+.icon_done {
+
+    /* position: absolute;*/
+    width: 20px;
+    height: 20px;
+    left: calc(50% - 20px/2);
+    top: calc(50% - 20px/2 + 0px);
+
+
+    background: #4CB75B;
+    border-radius: 12px;
+
+}
+
+.newRow {
+    clear: both;
+    padding: 20px 0;
+    margin: 10px -5px;
+}
+
+.grey_zone {
+    position: relative;
+    max-width: 1176px;
+    width: 100%;
+    min-height: 600px;
+    background: #EFF1F5;
+}
+
+.white_zone {
+    background: white;
+    height: 210px;
+}
+
+
+@media screen and (max-width: 650px) {
+    .white_zone {
+        height: 280px;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .white_zone {
+        height: 240px;
+    }
+}

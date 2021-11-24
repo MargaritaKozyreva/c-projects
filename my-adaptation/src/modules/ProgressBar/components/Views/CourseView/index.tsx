@@ -1,49 +1,19 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { progressActions, ProgressState } from '../../../redux/progressSlices';
-import { stepsActions, StepsState } from '../../../redux/stepsSlices';
+import { useSelector } from 'react-redux';
 import { WithSkeleton } from '@ui/components/WithSkeleton';
-
-interface IState {
-	progressData: {
-		progress: ProgressState;
-	};
-	stepsData: {
-		steps: StepsState;
-	};
-}
+import { CourseState } from '@modules/Course/redux/CourseSlices';
 
 export const CourseView: React.FC = () => {
-	const dispatch = useDispatch();
-	const progressResponse = useSelector((state: IState) => state);
-
-	useEffect(() => {
-		dispatch(progressActions.getProgressFetch());
-		dispatch(stepsActions.getStepsRequest());
-	}, [dispatch]);
+	const state = useSelector((state: { courses: CourseState }) => state.courses);
 
 	return (
 		<>
 			<WithSkeleton
-				isLoading={ progressResponse.progressData.progress.loading }
-				isEmpty={
-					Object.keys(progressResponse.progressData.progress.data).length === 0
-				}
+				isLoading={ state.courses.isLoading }
+				isEmpty={ state.courses.entities.length === 0 }
 			>
-				<h1 className="c-header">
-					Курс
-				</h1>
+				<h1 className="c-header">{ state.courses.entities[0]?.title || '' }</h1>
 			</WithSkeleton>
-
-			{
-				<WithSkeleton
-					isLoading={ progressResponse.stepsData.steps.loading }
-					isEmpty={ progressResponse.stepsData.steps.data.length === 0 }
-				>
-					CourseInfo
-				</WithSkeleton>
-			}
 		</>
 	);
 };
-

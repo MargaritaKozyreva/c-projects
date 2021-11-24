@@ -51,7 +51,7 @@ const LearnTableContainer: React.FC = () => {
 						<Table.Body>
 							{ block.list.map((listItem: LearnTableDTO.ITableItem) => (
 								<Table.Row key={ listItem.id }>
-									<Table.Cell>{ listItem.type }</Table.Cell>
+									<Table.Cell>{ setState(listItem).titleRU }</Table.Cell>
 									<Table.Cell>{ listItem.clever }</Table.Cell>
 									<Table.Cell>{ listItem.name }</Table.Cell>
 									<Table.Cell>

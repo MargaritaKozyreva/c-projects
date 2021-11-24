@@ -1,0 +1,71 @@
+.InfoBlock
+{
+    float: left;
+    margin: 0px 30px;
+
+}
+
+
+.InfoBlockText
+{
+    /*
+    position: static;
+    width: 43px;
+    height: 20px;
+    left: 0px;
+    top: 0px;
+*/
+    /* Regular/14 */
+
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+
+
+    /* Gray/80 */
+
+    color: #3B4047;
+
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
+.InfoBlockValue
+{
+
+    /*
+    position: static;
+    width: 72px;
+    height: 20px;
+    left: 0px;
+    top: 24px;
+*/
+    /* Semibold/14 */
+
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+
+
+    /* Gray/80 */
+
+    color: #3B4047;
+
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 4px 0px;
+}

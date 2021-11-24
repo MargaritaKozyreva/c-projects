@@ -5,7 +5,6 @@ import { useParams } from 'react-router';
 
 const CoursePage: React.FC = () => {
 	const { id } = useParams();
-	console.log(id)
 	return (
 		<Page title="Курс">
 			<CourseContainer courseId={ id } />

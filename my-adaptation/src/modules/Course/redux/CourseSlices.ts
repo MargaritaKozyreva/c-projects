@@ -30,7 +30,7 @@ const courseSlice = createSlice({
 		},
 		getCourseByIdSuccess: (state, action) => {
 			state.courses.entities = action.payload;
-			state.courses.isLoading = true;
+			state.courses.isLoading = false;
 		},
 		getCourseByIdError: (state, action) => {
 			state.courses.isLoading = false;
