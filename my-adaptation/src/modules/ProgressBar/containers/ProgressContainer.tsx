@@ -1,9 +1,9 @@
 import React from 'react';
 import { useLocation } from 'react-router';
 import Header from '../components/Header';
-import CourseInforContainer from './CourseInfoContainer';
-import ProgressInfoContainer from './ProgressInfoContainer';
-import EventInfoContainer from './EventInfoContainer';
+import { CourseView } from '../components/Views/CourseView';
+import { ProgressContainerView } from './ProgressContainerView';
+import { EventView } from '../components/Views/EventView';
 
 const ProgressContainer = () => {
 	const location = useLocation();
@@ -13,11 +13,11 @@ const ProgressContainer = () => {
 	return (
 		<Header>
 			{ isCoursePage ? (
-				<CourseInforContainer />
+				<CourseView />
 			) : isEventPage ? (
-				<EventInfoContainer />
+				<EventView />
 			) : (
-				<ProgressInfoContainer />
+				<ProgressContainerView />
 			) }
 		</Header>
 	);

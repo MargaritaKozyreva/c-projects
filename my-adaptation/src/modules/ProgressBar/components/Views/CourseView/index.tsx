@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Steps from '../components/ProgressSteps';
-import { progressActions, ProgressState } from '../redux/progressSlices';
-import { stepsActions, StepsState } from '../redux/stepsSlices';
+import { progressActions, ProgressState } from '../../../redux/progressSlices';
+import { stepsActions, StepsState } from '../../../redux/stepsSlices';
 import { WithSkeleton } from '@ui/components/WithSkeleton';
 
 interface IState {
@@ -14,7 +13,7 @@ interface IState {
 	};
 }
 
-const ProgressContainer: React.FC = () => {
+export const CourseView: React.FC = () => {
 	const dispatch = useDispatch();
 	const progressResponse = useSelector((state: IState) => state);
 
@@ -32,7 +31,7 @@ const ProgressContainer: React.FC = () => {
 				}
 			>
 				<h1 className="c-header">
-					Моя адаптация - { progressResponse.progressData.progress.data.percent }
+					Курс
 				</h1>
 			</WithSkeleton>
 
@@ -41,13 +40,10 @@ const ProgressContainer: React.FC = () => {
 					isLoading={ progressResponse.stepsData.steps.loading }
 					isEmpty={ progressResponse.stepsData.steps.data.length === 0 }
 				>
-					<Steps
-						stepsData={ progressResponse.stepsData.steps.data[0]?.data || [] }
-					/>
+					CourseInfo
 				</WithSkeleton>
 			}
 		</>
 	);
 };
 
-export default ProgressContainer;

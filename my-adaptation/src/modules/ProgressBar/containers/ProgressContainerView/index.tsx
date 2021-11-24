@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { progressActions, ProgressState } from '../redux/progressSlices';
-import { stepsActions, StepsState } from '../redux/stepsSlices';
+import Steps from '../../components/ProgressSteps';
+import { progressActions, ProgressState } from '../../redux/progressSlices';
+import { stepsActions, StepsState } from '../../redux/stepsSlices';
 import { WithSkeleton } from '@ui/components/WithSkeleton';
-import { useLocation } from 'react-router';
 
 interface IState {
 	progressData: {
@@ -14,7 +14,7 @@ interface IState {
 	};
 }
 
-const CourseInfoBarContainer: React.FC = () => {
+export const ProgressContainerView: React.FC = () => {
 	const dispatch = useDispatch();
 	const progressResponse = useSelector((state: IState) => state);
 
@@ -32,7 +32,7 @@ const CourseInfoBarContainer: React.FC = () => {
 				}
 			>
 				<h1 className="c-header">
-					Курс
+					Моя адаптация - { progressResponse.progressData.progress.data.percent }
 				</h1>
 			</WithSkeleton>
 
@@ -41,11 +41,11 @@ const CourseInfoBarContainer: React.FC = () => {
 					isLoading={ progressResponse.stepsData.steps.loading }
 					isEmpty={ progressResponse.stepsData.steps.data.length === 0 }
 				>
-					CourseInfo
+					<Steps
+						stepsData={ progressResponse.stepsData.steps.data[0]?.data || [] }
+					/>
 				</WithSkeleton>
 			}
 		</>
 	);
 };
-
-export default CourseInfoBarContainer;

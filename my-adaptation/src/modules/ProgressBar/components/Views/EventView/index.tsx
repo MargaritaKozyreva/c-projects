@@ -4,7 +4,7 @@ import { WithSkeleton } from '@ui/components/WithSkeleton';
 import { EventState } from '@modules/Event/redux/EventSlices';
 import { EventDTO } from '@modules/Event/dataContext/EventDTO.dto';
 
-const EventInfoBarContainer: React.FC = () => {
+export const EventView: React.FC = () => {
 	const eventInfoData = useSelector((state: { events: EventState }) => state.events);
 
 	return (
@@ -20,5 +20,3 @@ const EventInfoBarContainer: React.FC = () => {
 		</WithSkeleton>
 	);
 };
-
-export default EventInfoBarContainer;
