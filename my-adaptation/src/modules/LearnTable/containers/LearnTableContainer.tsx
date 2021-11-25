@@ -10,7 +10,11 @@ import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Accordion } from '@ui/components/Accordion';
 import { setState } from '../helpers/functions';
-import { Cheap } from '@ui/components/Cheap';
+import { Chips } from '@ui/components/Chips';
+import { Span } from '@ui/components/Typography';
+import EventRegistrationProcess from '@modules/Modal/components/Content/Event/EventRegistration/EventRegistrationProcess';
+import { modalActions } from '@modules/Modal/redux/ModalSlices';
+
 interface IState {
 	learnTable: {
 		loading: boolean;
@@ -55,14 +59,31 @@ const LearnTableContainer: React.FC = () => {
 									<Table.Cell>{ listItem.clever }</Table.Cell>
 									<Table.Cell>{ listItem.name }</Table.Cell>
 									<Table.Cell>
-										<Cheap>{ setState(listItem).status || '' }</Cheap>
+										<Chips design="warning">
+											<Span transform="uppercase" size="xs">
+												{ setState(listItem).status || '' }
+											</Span>
+										</Chips>
 									</Table.Cell>
 									<Table.Cell>
-										<Link
+										{ /* <Link
 											to={ `${ url.pathname }/${ listItem.type }/${ listItem.id }` }
+										> */ }
+										{ /* <Button onClick={ () => {} } mode="secondary">
+												{ listItem.action?.text }
+											</Button> */ }
+										<Button
+											onClick={ () => {
+												dispatch(modalActions.showModal({
+													content: <EventRegistrationProcess />,
+													props: {}
+												}));
+											} }
+											mode="secondary"
 										>
-											<Button>{ listItem.action?.text }</Button>
-										</Link>
+											{ listItem.action?.text }
+										</Button>
+										{ /* </Link> */ }
 									</Table.Cell>
 								</Table.Row>
 							)) }

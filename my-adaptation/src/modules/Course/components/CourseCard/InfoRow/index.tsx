@@ -1,5 +1,5 @@
 import React from 'react';
-import './styled.css';
+import './styles.scss';
 
 const InfoRow = (props: any) => {
 	return (

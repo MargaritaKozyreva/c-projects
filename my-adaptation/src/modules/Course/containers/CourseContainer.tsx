@@ -4,6 +4,7 @@ import { WithSkeleton } from '@ui/components/WithSkeleton';
 import { courseActions, CourseState } from '../redux/CourseSlices';
 import { CourseDTO } from '../dataContext/CourseDTO.dto';
 import './styles.scss';
+import CourseCard from '../components/CourseCard';
 
 interface CourseContainerProps {
 	courseId: string | undefined;
@@ -14,7 +15,6 @@ export const CourseContainer: React.FC<CourseContainerProps> = (props) => {
 	const dispatch = useDispatch();
 	const courseResponse = useSelector((state: { courses: CourseState }) => state.courses);
 
-	console.log(courseResponse)
 	useEffect(() => {
 		dispatch(courseActions.getCourseByIdPending(String(courseId)));
 	}, [dispatch]);
@@ -25,7 +25,7 @@ export const CourseContainer: React.FC<CourseContainerProps> = (props) => {
 			isEmpty={ courseResponse.courses.entities.length === 0 }
 		>
 			{ courseResponse.courses.entities.map((course: CourseDTO.ICourse) => {
-				return <div key={ course.id }>{ course.title }</div>;
+				return <CourseCard { ...course } key={ course.id } />;
 			}) }
 		</WithSkeleton>
 	);

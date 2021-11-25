@@ -1,12 +1,13 @@
 import React, { ButtonHTMLAttributes, useMemo } from 'react';
 import cn from 'classnames';
-import './Button.scss';
+import './styles.scss';
 
 export type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
-	size?: 's' | 'l' | 'm';
+	size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl'; // размер
 	mode?: 'primary' | 'secondary' | 'ghost';
+	shape?: 'default' | 'circle';
 	icon?: React.ReactNode;
-	children?: string;
+	children?: any;
 	value?: string;
 	active?: boolean;
 };
@@ -16,6 +17,7 @@ export default function Button({
 	mode = 'primary',
 	children,
 	value,
+	shape = 'default',
 	icon,
 	className,
 	active,
@@ -28,20 +30,21 @@ export default function Button({
 		() => ({
 			container: cn(
 				BASE,
-				`${ BASE }_size_${ byDefaulSize(size) }`,
+				{ [`${ BASE }_size_${ byDefaulSize(size) }`]: shape === 'default' },
 				`${ BASE }_mode_${ byDefaulMode(mode) }`,
 				{ [`${ BASE }_with-text`]: isHaveText },
+				{ [`${ BASE }_circle`]: shape === 'circle' },
 				className
 			),
 			icon: cn(ICON, { [`${ ICON }_margin`]: isHaveText }),
 			text: cn(TEXT)
 		}),
-		[className, isHaveText, mode, size]
+		[className, isHaveText, mode, size, shape]
 	);
 
 	return (
 		<button { ...props } className={ styles.container }>
-			<span className={ styles.text }>{ text }</span>
+			{ isHaveText && <span className={ styles.text }>{ text }</span> }
 			{ icon }
 		</button>
 	);

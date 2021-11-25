@@ -5,7 +5,7 @@ import {
 } from '../../../../core/httpService/service';
 
 class LearnTableContext {
-	getEducationList(): ResponseResult<Array<LearnTableDTO.LearnListData>> {
+	getEducationListByStepNumber(stepNum: number = 1): ResponseResult<Array<LearnTableDTO.LearnListData>> {
 		return httpServiceMock<Array<LearnTableDTO.LearnListData>>([
 			{
 				data: {
@@ -15,7 +15,7 @@ class LearnTableContext {
 					blocks: [
 						{
 							id: '112233',
-							title: 'Block1',
+							title: 'Блок 1',
 							status: 4,
 							list: [
 								{
@@ -70,7 +70,7 @@ class LearnTableContext {
 						},
 						{
 							id: '44443446',
-							title: 'Block2',
+							title: 'Блок 2',
 							status: 4,
 							list: [
 								{

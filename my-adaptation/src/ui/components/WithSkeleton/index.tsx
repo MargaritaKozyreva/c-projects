@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import Spinner from '../Spinner';
 export type WithSkeletonProps = {
 	readonly isLoading: boolean;
 	readonly isEmpty: boolean;
@@ -16,7 +17,7 @@ export const WithSkeleton: React.FC<WithSkeletonProps> = (props) => {
 	}
 
 	if (isLoading) {
-		return <>{ skeletonSlot || 'is loading....' }</>;
+		return <>{ skeletonSlot || <Spinner size='xl' /> }</>;
 	}
 
 	if (!isLoading && !error && isEmpty) {

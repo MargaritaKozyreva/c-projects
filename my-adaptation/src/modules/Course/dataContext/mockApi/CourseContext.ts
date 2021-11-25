@@ -14,7 +14,7 @@ class CourseContext {
 				plan_finish_date: '21.11.2021',
 				start_usage_date: '15.11.2021',
 				max_score: 100,
-				score: 13,
+				score: 50,
 				info: {
 					parts_count: 3,
 					parts: [
@@ -23,8 +23,8 @@ class CourseContext {
 							title: '1. Видеокурс. Должнстная инструкция для СПЗП. Ч.1',
 							type: 'lesson',
 							desc: 'description',
-							state_id: 1,
-							score: 13,
+							state_id: 4,
+							score: 50,
 							url: '/webtutor/X5_GK_6_course_ORG/index_lms.html',
 							last_usage_date: '17.11.2021'
 						},

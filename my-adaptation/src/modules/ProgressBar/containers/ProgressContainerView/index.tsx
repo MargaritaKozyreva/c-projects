@@ -4,6 +4,7 @@ import Steps from '../../components/ProgressSteps';
 import { progressActions, ProgressState } from '../../redux/progressSlices';
 import { stepsActions, StepsState } from '../../redux/stepsSlices';
 import { WithSkeleton } from '@ui/components/WithSkeleton';
+import { H1 } from '@ui/components/Typography';
 
 interface IState {
 	progressData: {
@@ -31,21 +32,14 @@ export const ProgressContainerView: React.FC = () => {
 					Object.keys(progressResponse.progressData.progress.data).length === 0
 				}
 			>
-				<h1 className="c-header">
-					Моя адаптация - { progressResponse.progressData.progress.data.percent }
-				</h1>
-			</WithSkeleton>
+				<H1>
+					Моя адаптация - { progressResponse.progressData.progress.data.percent }%
+				</H1>
 
-			{
-				<WithSkeleton
-					isLoading={ progressResponse.stepsData.steps.loading }
-					isEmpty={ progressResponse.stepsData.steps.data.length === 0 }
-				>
-					<Steps
-						stepsData={ progressResponse.stepsData.steps.data[0]?.data || [] }
-					/>
-				</WithSkeleton>
-			}
+				<Steps
+					stepsData={ progressResponse.stepsData.steps.data[0]?.data || [] }
+				/>
+			</WithSkeleton>
 		</>
 	);
 };

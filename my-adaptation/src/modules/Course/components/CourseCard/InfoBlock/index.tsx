@@ -1,12 +1,12 @@
+import { Span } from '@ui/components/Typography';
 import React from 'react';
-import './styled.css';
+import './styles.scss';
 
 const InfoBlock = (props: any) => {
 	return (
 		<div className="InfoBlock">
-			<div className="InfoBlockText"> { props.text }</div>
+			<Span size="xs" transform='uppercase'> { props.text }</Span>
 			<div className="InfoBlockValue">
-				{ ' ' }
 				{ props.icon == 'fire' ? '🔥' : '' } { props.value }
 			</div>
 		</div>

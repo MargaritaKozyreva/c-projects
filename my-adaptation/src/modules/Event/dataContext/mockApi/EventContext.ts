@@ -9,10 +9,10 @@ class EventContext {
 		return httpServiceMock<Array<EventDTO.IEvent>>([
 			{
 				id: id,
-				title: 'Тренинг',
+				title: 'Тренинг #PROклиента',
 				info: {
 					place: 'МСК',
-					type: 'Тренинг',
+					type: 'event',
 					dateStart: '21.11.2021 10:00',
 					dateEnd: '21.11.2021 13:00',
 					personCount: 30,

@@ -1,6 +1,6 @@
 import { takeEvery, put, call, StrictEffect } from 'redux-saga/effects';
 import { ProgressDTO } from '../dataContext/ProgressDTO.dto';
-import { progressContext } from '../dataContext/ProgressContext';
+import { progressContext } from '../dataContext/mockApi/ProgressContext';
 import { progressActions } from '../redux/progressSlices';
 import { AxiosResponse } from 'axios';
 

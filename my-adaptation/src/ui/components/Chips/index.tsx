@@ -2,16 +2,21 @@ import React, { ButtonHTMLAttributes, useMemo } from 'react';
 import './styles.scss';
 import cn from 'classnames';
 
-export type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
+export type Props = {
 	size?: 's' | 'l';
 	icon?: React.ReactNode;
-	children?: string;
+	children?: React.ReactNode;
 	value?: string;
+	design: 'ghost' | 'primary' | 'secondary' | 'warning';
 	rightIcon?: boolean;
 	active?: boolean;
 };
 
-export const Cheap: React.FC<Props> = (props) => {
+interface HTMLAttributesProps {
+	className?: string;
+}
+
+export const Chips: React.FC<Props & HTMLAttributesProps> = (props) => {
 	const {
 		children,
 		size,
@@ -19,18 +24,25 @@ export const Cheap: React.FC<Props> = (props) => {
 		icon,
 		rightIcon,
 		className,
+		design = 'ghost',
 		active,
 		...attrs
 	} = props;
 
+	const BASE = 'x5-design-chips';
+
 	const styles = useMemo(
 		() => ({
 			container: cn(
-				'chips',
+				BASE,
 				{
-					chips_size_s: size !== 'l',
-					chips_size_l: size === 'l',
-					chips_reverse: !!rightIcon,
+					[`${ BASE }_size_s`]: size !== 'l',
+					[`${ BASE }_size_l`]: size === 'l',
+					[`${ BASE }_design_ghost`]: design === 'ghost',
+					[`${ BASE }_design_primary`]: design === 'primary',
+					[`${ BASE }_design_secondary`]: design === 'secondary',
+					[`${ BASE }_design_warning`]: design === 'warning',
+					[`${ BASE }_reverse`]: !!rightIcon,
 					'chips_with-text': !!children || !!value
 				},
 				className
@@ -45,9 +57,9 @@ export const Cheap: React.FC<Props> = (props) => {
 	);
 
 	return (
-		<button { ...props } className={ styles.container }>
+		<div { ...props } className={ styles.container }>
 			{ icon as React.ReactNode }
 			<span className={ styles.text }>{ value || children }</span>
-		</button>
+		</div>
 	);
 };

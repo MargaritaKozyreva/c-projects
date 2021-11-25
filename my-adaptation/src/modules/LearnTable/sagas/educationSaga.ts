@@ -1,7 +1,7 @@
 import { throttle, put, call, StrictEffect } from 'redux-saga/effects';
 import { LearnTableDTO } from '../dataContext/LearnTableDTO.dto';
-// import { LearnTableContext } from '../dataContext/mockApi/LearnTableContext';
-import { learnTableContext } from '../dataContext/LearnTableContext';
+import { learnTableContext } from '../dataContext/mockApi/LearnTableContext';
+//import { learnTableContext } from '../dataContext/LearnTableContext';
 
 import {
 	learnTableActions,

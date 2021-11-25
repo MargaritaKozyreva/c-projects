@@ -5,6 +5,7 @@ import { progressModule } from './ProgressBar/module';
 import { learnTableModule } from './LearnTable/module';
 import { eventModule } from './Event/module';
 import { courseModule } from './Course/module';
+import { modalModule } from './Modal/module';
 export interface IRouter extends Omit<RouteProps, 'path'> {
 	name: string;
 	path: string;
@@ -28,5 +29,6 @@ export const allModules: BaseModule[] = [
 	progressModule,
 	learnTableModule,
 	eventModule,
-	courseModule
+	courseModule,
+	modalModule
 ];

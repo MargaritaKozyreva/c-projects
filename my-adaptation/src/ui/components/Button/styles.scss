@@ -1,7 +1,8 @@
-@import '../../presets/button';
+@import "../../design/root";
 
 .x5-design-button {
 	@include reset-button;
+	width: 100%;
 	box-sizing: border-box;
 	border-radius: 24px;
 	&_with-text {
@@ -18,12 +19,13 @@
 		@include typography(regular, BTN1);
 	}
 	&__icon {
-		&_margin {
-			margin-left: 4px;
-		}
+		margin: 0 auto;
 	}
 	/* ------------------------ Size ------------------------ */
-	&_size {
+	&__size {
+		&_xl {
+			padding: var(--gp-xl);
+		}
 		&_l {
 			padding: var(--gp-s);
 		}
@@ -37,6 +39,16 @@
 			}
 		}
 	}
+
+	/* ------------------------ Size ------------------------ */
+
+	&_circle {
+		border-radius: 50%;
+		width: 40px;
+		height: 40px;
+		padding: 0;
+	}
+
 	// TODO: как сделать красиво?
 	&_with-text.x5-design-button_size {
 		&_l {
@@ -50,9 +62,9 @@
 		}
 	}
 	/* ------------------------ Палитра ------------------------ */
-	@mixin action-default {
+	@mixin action-primary {
 		&:hover {
-			background-color: hexa(#5faf2d, 0.45);
+			background-color: var(--color-green-40);
 			color: var(--color-accent-cold-50);
 		}
 		&:active {
@@ -75,18 +87,29 @@
 			color: var(--color-gray-40);
 		}
 	}
+	@mixin action-secondary {
+		&:hover {
+			color: var(--color-green-40);
+		}
+		&:active {
+			color: var(--color-accent-1-100);
+		}
+		&:disabled {
+			color: var(--color-gray-40);
+		}
+	}
 
 	transition: background-color 0.1s, color 0.1s;
 	&_mode {
 		&_primary {
 			background-color: var(--color-green-60);
 			color: var(--color-white);
-			@include action-default;
+			@include action-primary;
 		}
 		&_secondary {
-			background-color: hexa(#5faf2d, 0.15);
+			background-color: var(--color-green-20);
 			color: var(--color-accent-cold-50);
-			@include action-default;
+			@include action-primary;
 		}
 		&_ghost {
 			color: var(--color-accent-1-50);

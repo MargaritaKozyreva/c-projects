@@ -1,10 +1,10 @@
-@import '../../design/tokens/root';
+@import '../../design/root';
 
 .typography {
-    color: var(--color-gray-100);
+    color: var(--color-gray-80);
 
     &--h1 {
-        font-size: var(--font-size-2xl);
+        font-size: var(--font-size-xxl);
     }
 
     &--h2 {

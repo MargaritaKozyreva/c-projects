@@ -1,0 +1,81 @@
+@import "../../design/root";
+
+/* ------------------------ Палитра ------------------------ */
+
+@mixin active {
+    background-color: var(--button-active);
+    color: var(--color-accent-1-80);
+}
+
+.x5-design-chips {
+    @include reset-button;
+    box-sizing: border-box;
+    border-radius: 20px;
+    width: max-content;
+    padding: 8px 12px;
+    letter-spacing: 0.4px;
+    font-variant: small-caps;
+
+    /* ------------------------ Colors ------------------------ */
+    transition: background-color 0.2s, color 0.2s;
+    background-color: var(--color-white);
+    color: var(--color-gray-80);
+    &_active {
+        @include active;
+    }
+
+    /* ------------------------ Layout ------------------------ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    &_reverse {
+        flex-direction: row-reverse;
+    }
+
+    /* ---------------------- Component ----------------------- */
+    &__text {
+        @include typography(regular, T1);
+        background-color: transparent;
+    }
+
+    /* ------------------------- Size ------------------------- */
+    &_size {
+        &_s {
+            font-size: var(--font-size-s);
+        }
+        &_l {
+            font-size: var(--font-size-l);
+        }
+    }
+    /* ------------------------- Design ------------------------- */
+    &_design {
+        &_ghost {
+            color: var(--color-accent-1-50);
+        }
+        &_primary {
+            background-color: var(--color-green-60);
+            color: var(--color-white);
+        }
+        &_secondary {
+            background-color: var(--color-green-20);
+            color: var(--color-accent-cold-50);
+        }
+        &_warning {
+            background-color: var(--color-additional-yellow-light);
+            color: #b76c00;
+        }
+    }
+    // Текст меняет горизонтальный паддинг
+    &_with-text {
+        padding-left: var(--gp-m);
+        padding-right: var(--gp-m);
+    }
+    /* С текстом иконка приобретает отступ от текста */
+    &_with-text &__icon {
+        margin-right: 4px;
+        &_reverse {
+            margin-left: 4px;
+        }
+    }
+}

@@ -1,7 +1,6 @@
 import { ProgressDTO } from './ProgressDTO.dto';
 import {
 	httpService,
-	httpServiceMock,
 	ResponseResult
 } from '../../../core/httpService/service';
 import { AxiosPromise } from 'axios';

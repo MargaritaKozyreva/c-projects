@@ -1,7 +1,6 @@
 .buttons_right {
-    padding: 0 20px 0 0;
-    float: right;
-
+    display: flex;
+    flex-direction: row;
 }
 
 .backward {
@@ -10,39 +9,41 @@
     line-height: 16px;
     letter-spacing: 0.4px;
     font-variant: small-caps;
-    color: #9299A4;
+    color: #9299a4;
     padding: 30px 0 30px 30px;
 }
 
-
 .button_padding {
     padding: 0px 8px;
-    float: left;
 }
 
 .table_padding {
     padding: 25px 20px;
-
 }
 
 .icon_done {
-
-    /* position: absolute;*/
     width: 20px;
     height: 20px;
-    left: calc(50% - 20px/2);
-    top: calc(50% - 20px/2 + 0px);
-
-
-    background: #4CB75B;
+    left: calc(50% - 20px / 2);
+    top: calc(50% - 20px / 2 + 0px);
+    background: var(--color-accent-1-50);
     border-radius: 12px;
-
+}
+.icon_process {
+    width: 20px;
+    height: 20px;
+    left: calc(50% - 20px / 2);
+    top: calc(50% - 20px / 2 + 0px);
+    background: var(--color-additional-yellow-light);
+    border-radius: 12px;
 }
 
 .newRow {
-    clear: both;
     padding: 20px 0;
-    margin: 10px -5px;
+    margin: 10px 0px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
 }
 
 .grey_zone {
@@ -50,14 +51,13 @@
     max-width: 1176px;
     width: 100%;
     min-height: 600px;
-    background: #EFF1F5;
+    background: #eff1f5;
 }
 
 .white_zone {
     background: white;
     height: 210px;
 }
-
 
 @media screen and (max-width: 650px) {
     .white_zone {
