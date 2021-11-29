@@ -23,7 +23,7 @@ class ProgressContext {
 					{
 						title: 'Этап 2',
 						num: 2,
-						stepState: 'locked',
+						stepState: 'active',
 						dateStart: '01.02.2021', //дата начала этапа
 						dateEnd: '01.06.2021' //дата завершения этапа
 					}

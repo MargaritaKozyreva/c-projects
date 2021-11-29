@@ -34,25 +34,6 @@ const eventSlice = createSlice({
 			state.events.isLoading = false;
 		}
 	}
-	// extraReducers: (builder) => {
-	// 	builder.addCase(eventContext.getEventById.pending, (state) => {
-	// 		state.events.isLoading = true;
-	// 	});
-	// 	builder.addCase(
-	// 		eventContext.getEventById.,
-	// 		(state, action: PayloadAction<AxiosResponse>) => {
-	// 			state.events.isLoading = false;
-	// 			state.events.entities = action.payload.data;
-	// 		}
-	// 	);
-	// 	builder.addCase(
-	// 		eventContext.getEventById.rejected,
-	// 		(state, action: PayloadAction<any>) => {
-	// 			state.events.isLoading = false;
-	// 			state.events.error = action.payload.error.message;
-	// 		}
-	// 	);
-	// }
 });
 
 export const eventActions = eventSlice.actions;

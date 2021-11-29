@@ -1,0 +1,49 @@
+﻿Вызов компонента и примеры вызова функций
+
+import React, { useState } from 'react';
+import DayPickerSingleDate from './components/DayPickerSingleDate';
+
+const App = () => {
+  const [date, setDate] = useState();
+  const daysIsBlocked = ['2021-11-01','2021-11-02', '2021-11-03', '2021-11-04','2021-11-15'];
+  const daysIsOrange = ['2021-20-12', '2021-11-19', '2021-11-30'];
+  const daysIsPurple = ['2021-20-02', '2021-11-07', '2021-11-21'];
+  const daysIsRed = ['2021-11-13', '2021-12-17', '2021-11-20'];
+  const daysIsClosed = ['2021-11-21','2021-11-22', '2021-11-23', '2021-11-24'];
+
+  //Подсвечиваем дни
+  const isDayHighlighted = (day) => {
+    return daysIsClosed.some(item => item === day.format('YYYY-MM-DD'));
+  };
+
+  //Рендерим ячейки
+  const renderDayContents = (day) => {
+    if (date && daysIsRed.some(item => item === date.format('YYYY-MM-DD')) && date.format('YYYY-MM-DD') === day.format('YYYY-MM-DD')) {
+      return (<div className="CalendarDay__red">
+        {day.format('D')}
+      </div>)
+    }
+    let className = daysIsOrange.some(item => item === day.format('YYYY-MM-DD')) ? 'CalendarDay__orange' :
+      daysIsPurple.some(item => item === day.format('YYYY-MM-DD')) ? 'CalendarDay__purple' : '';
+    if (className) {
+      return (<div className={`${className}`}>
+        {day.format('D')}
+      </div>)
+    }
+
+    return day.format('D');
+  };
+
+  //Блокируем ячейки
+  const isDayBlocked = (day) => {
+    return daysIsBlocked.some(item => item === day.format('YYYY-MM-DD'));
+  }
+
+  return (
+    <DayPickerSingleDate  date={date} setDate={setDate} 
+      renderDayContents={renderDayContents} 
+      isDayBlocked={isDayBlocked}
+      isDayHighlighted={isDayHighlighted}/>
+  );
+}
+export default App;

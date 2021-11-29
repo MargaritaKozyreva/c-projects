@@ -4,7 +4,7 @@
     "lib": ["es2015", "es2016", "dom"],
     "outDir": "./build/",
     "paths": {
-      "@components/*": ["src/components/*"],
+      "@components/*": ["src/ui/components/*"],
       "@core/*": ["src/core/*"],
       "@modules/*": ["src/modules/*"],
       "@icons/*":["src/ui/components/icons/*"],

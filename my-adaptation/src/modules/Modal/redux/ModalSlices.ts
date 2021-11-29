@@ -1,36 +1,48 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ReactElement } from 'react';
+
+export enum ModalKey {
+	Default = 'DEFAULT',
+	Process = 'PROCESS',
+	Done = 'DONE'
+}
+
+export type ModalKeyToPayload = {
+	[ModalKey.Default]: null;
+	[ModalKey.Process]: { readonly eventId: number | string };
+	[ModalKey.Done]: { readonly eventName: string };
+};
 
 export type ModalState = {
 	isShow: boolean;
-	content: any;
-	props?: any;
+	key: ModalKey;
+	payload?: any;
 };
 
 const initialState: ModalState = {
 	isShow: false,
-	content: null,
-	props: {}
+	key: ModalKey.Default,
+	payload: {}
 };
+
 
 const modalSlices = createSlice({
 	name: 'modalSlice',
 	initialState,
 	reducers: {
-		showModal: (
-			state,
+		showModal: <K extends ModalKey>(
+			state: ModalState,
 			action: {
-				payload: { content: ModalState['content']; props: ModalState['props'] };
+				payload: { key: ModalKey; payload: ModalKeyToPayload[K] };
 			}
 		) => {
 			state.isShow = true;
-			state.content = action.payload.content;
-			state.props = action.payload.props;
+			state.key = action.payload.key;
+			state.payload = action.payload.payload;
 		},
 		hideModal: (state) => {
 			state.isShow = false;
-			state.content = null;
-			state.props = {};
+			state.key = ModalKey.Default;
+			state.payload = {};
 		}
 	}
 });

@@ -23,13 +23,13 @@ export namespace LearnTableDTO {
 	export interface IVideo extends ITableItem {
 		type: 'video';
 	}
-	export type LearnList = Array<ICourse | IAssessment | IEvent | IVideo>;
+	export type LearnList = ICourse | IAssessment | IEvent | IVideo;
 
 	export type IBlock = {
 		id: string | number;
 		title: string;
 		status: number;
-		list: LearnList;
+		list: LearnList[];
 	};
 
 	export type LearnListObj = {

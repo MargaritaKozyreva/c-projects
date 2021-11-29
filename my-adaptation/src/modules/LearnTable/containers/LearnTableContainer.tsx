@@ -13,7 +13,8 @@ import { setState } from '../helpers/functions';
 import { Chips } from '@ui/components/Chips';
 import { Span } from '@ui/components/Typography';
 import EventRegistrationProcess from '@modules/Modal/components/Content/Event/EventRegistration/EventRegistrationProcess';
-import { modalActions } from '@modules/Modal/redux/ModalSlices';
+import ButtonController from '../components/ButtonController';
+import { Path } from 'typescript';
 
 interface IState {
 	learnTable: {
@@ -66,24 +67,7 @@ const LearnTableContainer: React.FC = () => {
 										</Chips>
 									</Table.Cell>
 									<Table.Cell>
-										{ /* <Link
-											to={ `${ url.pathname }/${ listItem.type }/${ listItem.id }` }
-										> */ }
-										{ /* <Button onClick={ () => {} } mode="secondary">
-												{ listItem.action?.text }
-											</Button> */ }
-										<Button
-											onClick={ () => {
-												dispatch(modalActions.showModal({
-													content: <EventRegistrationProcess />,
-													props: {}
-												}));
-											} }
-											mode="secondary"
-										>
-											{ listItem.action?.text }
-										</Button>
-										{ /* </Link> */ }
+										<ButtonController { ...listItem } url={ url } />
 									</Table.Cell>
 								</Table.Row>
 							)) }

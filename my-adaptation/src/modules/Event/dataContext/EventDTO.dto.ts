@@ -1,6 +1,6 @@
 export namespace EventDTO {
 	export interface IEvent {
-        id: string;
+		id: string;
 		title: string;
 		info: {
 			place: string;
@@ -13,5 +13,12 @@ export namespace EventDTO {
 			mentorPosition: string;
 		};
 		attachFiles: any;
+	}
+
+	export interface IEventCalendar {
+		id: string | number;
+		name: string;
+		date: string;
+		address: string;
 	}
 }

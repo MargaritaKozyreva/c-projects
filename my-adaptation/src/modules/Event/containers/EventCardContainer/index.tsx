@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { WithSkeleton } from '@ui/components/WithSkeleton';
-import { EventState, eventActions } from '../redux/EventSlices';
-import { EventDTO } from '../dataContext/EventDTO.dto';
+import { EventState, eventActions } from '../../redux/EventSlices';
+import { EventDTO } from '../../dataContext/EventDTO.dto';
 import Card from '@ui/components/Card';
 import { H1, H3, H4, P, Span } from '@ui/components/Typography';
 import './styles.scss';
@@ -20,8 +20,6 @@ const EventContainer: React.FC<EventContainerProps> = (props) => {
 		dispatch(eventActions.getEventByIdPending(String(eventId)));
 	}, [dispatch]);
 
-	console.log(eventResponse.events);
-
 	return (
 		<WithSkeleton
 			isLoading={ eventResponse.events.isLoading }
@@ -32,7 +30,7 @@ const EventContainer: React.FC<EventContainerProps> = (props) => {
 					<Card design="default">
 						<Card.Zone margin="none" line="bottom">
 							<Card.Zone margin="l">
-								<H4>Информация о мероприятии</H4>
+								<H4>Информация о ближайшем мероприятии</H4>
 							</Card.Zone>
 						</Card.Zone>
 						<Card.Content margin="l">

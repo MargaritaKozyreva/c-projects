@@ -1,12 +1,13 @@
-import React from 'react';
+﻿import React from 'react';
 import Button from '@ui/components/Button';
 import moment from 'moment';
 import Modal from '@modules/Modal/containers/ModalContainer';
 import 'moment/locale/ru';
 import { useDispatch } from 'react-redux';
 import { modalActions } from '@modules/Modal/redux/ModalSlices';
+import { H3, P } from '@ui/components/Typography';
 
-const EventRegistrationDone = (props: any) => {
+const ModalNotificationContent = (props: any) => {
 	const { eventInfo } = props;
 	const dispatch = useDispatch();
 
@@ -18,11 +19,11 @@ const EventRegistrationDone = (props: any) => {
 			<Modal.Body>
 				<div className="container-notification">
 					<div className="circle-avatar" />
-					<h3>Вы успешно записаны на мероприятие:</h3>
-					<h3>{ eventInfo.name }</h3>
+					<H3>Вы успешно записаны на мероприятие:</H3>
+					<H3>{ eventInfo.name }</H3>
 					<br />
-					<p>Дата: { date }</p>
-					<p>Начало в { time }</p>
+					<P>Дата: { date }</P>
+					<P>Начало в { time }</P>
 					{ eventInfo.adress && <p>Адрес: { eventInfo.adress }</p> }
 				</div>
 			</Modal.Body>
@@ -37,4 +38,4 @@ const EventRegistrationDone = (props: any) => {
 	);
 };
 
-export default EventRegistrationDone;
+export default ModalNotificationContent;

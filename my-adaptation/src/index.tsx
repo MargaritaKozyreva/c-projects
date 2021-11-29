@@ -10,6 +10,7 @@ import { EducationPage } from './pages/educationList';
 
 import './prebuild/scss/index.scss';
 import Modal from '@modules/Modal/containers/ModalContainer';
+// import Modal from '@modules/Modal/containers/ModalContainer';
 
 const App = () => {
 	const initState = {};
@@ -32,6 +33,7 @@ const App = () => {
 					<Route path="/adaptation/course/:id" element={ <CoursePage /> } />
 					<Route path="*" element={ <div>Страницы не существует</div> } />
 				</Routes>
+				<Modal />
 			</Router>
 		</Provider>
 	);

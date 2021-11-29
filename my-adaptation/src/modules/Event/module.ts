@@ -1,5 +1,7 @@
 import { BaseModule } from '../allModules';
+import { eventCalendarReducers } from './redux/EventCalendarSlices';
 import { eventReducers } from './redux/EventSlices';
+import EventCalendarSaga from './sagas/EventCalendarSaga';
 import EventSaga from './sagas/EventSaga';
 
 class EventModule implements BaseModule {
@@ -11,12 +13,13 @@ class EventModule implements BaseModule {
 
 	getReducers() {
 		return {
-			events: eventReducers
+			events: eventReducers,
+			calendarEvents: eventCalendarReducers
 		};
 	}
 
 	getSagas() {
-		return [EventSaga()];
+		return [EventSaga(), EventCalendarSaga()];
 	}
 
 	getRoutes() {
