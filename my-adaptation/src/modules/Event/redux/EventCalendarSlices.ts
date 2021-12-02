@@ -4,21 +4,55 @@ import { eventContext } from '../dataContext/EventContext';
 import { EventDTO } from '../dataContext/EventDTO.dto';
 
 export type EventCalendarState = {
-	entity: {
-		eventsPlans: Array<EventDTO.IEventCalendar>;
-		eventsRecord: Array<EventDTO.IEventCalendar>;
+	calendarEvents: {
+		entity: {
+			eventsPlans: Array<EventDTO.IEventCalendar>;
+			eventsRecord: Array<EventDTO.IEventCalendar>;
+		};
+		isLoading: boolean;
+		error: string | undefined;
 	};
-	isLoading: boolean;
-	error: string | undefined;
+	selectedEvent: {
+		event: EventDTO.IEvent;
+		isLoading: boolean;
+		error: string | undefined;
+	};
+	selectedEventDateTime: {
+		eventDateTime: any;
+	};
 };
 
 const initialState: EventCalendarState = {
-	entity: {
-		eventsPlans: [],
-		eventsRecord: []
+	calendarEvents: {
+		entity: {
+			eventsPlans: [],
+			eventsRecord: []
+		},
+		isLoading: false,
+		error: undefined
 	},
-	isLoading: false,
-	error: undefined
+	selectedEvent: {
+		event: {
+			id: '',
+			title: '',
+			info: {
+				place: '',
+				type: '',
+				dateStart: '',
+				dateEnd: '',
+				personCount: 0,
+				state: '',
+				mentor: '',
+				mentorPosition: ''
+			},
+			attachFiles: {}
+		},
+		isLoading: false,
+		error: undefined
+	},
+	selectedEventDateTime: {
+		eventDateTime: undefined
+	}
 };
 
 const eventCalendarSlice = createSlice({
@@ -26,15 +60,52 @@ const eventCalendarSlice = createSlice({
 	initialState,
 	reducers: {
 		getAllEventsForCalendarPending: (state, action) => {
-			state.isLoading = true;
+			state.calendarEvents.isLoading = true;
 		},
 		getAllEventsForCalendarSuccess: (state, action) => {
-			state.entity = action.payload;
-			state.isLoading = false;
+			state.calendarEvents.entity = action.payload;
+			state.calendarEvents.isLoading = false;
 		},
 		getAllEventsForCalendarError: (state, action) => {
-			state.isLoading = false;
-			state.error = action.payload;
+			state.calendarEvents.isLoading = false;
+			state.calendarEvents.error = action.payload;
+		},
+
+		recordOnEventPending: (state, action) => {
+			state.selectedEvent.isLoading = true;
+		},
+		recordOnEventSuccess: (state, action) => {
+			state.selectedEvent.isLoading = false;
+			state.selectedEvent.event = action.payload;
+		},
+		recordOnEventError: (state, action) => {
+			state.selectedEvent.isLoading = false;
+			state.selectedEvent.error = action.payload;
+		},
+		selectedTimeInCalendar: (state, action) => {
+			state.selectedEventDateTime.eventDateTime = action.payload;
+		},
+		clearSelectedEvent: (state) => {
+			state.selectedEvent.isLoading = false;
+			(state.selectedEvent.event = {
+				id: '',
+				title: '',
+				info: {
+					place: '',
+					type: '',
+					dateStart: '',
+					dateEnd: '',
+					personCount: 0,
+					state: '',
+					mentor: '',
+					mentorPosition: ''
+				},
+				attachFiles: {}
+			}),
+			(state.selectedEvent.error = undefined);
+		},
+		clearSelectedTime: (state) => {
+			state.selectedEventDateTime.eventDateTime = undefined;
 		}
 	}
 });

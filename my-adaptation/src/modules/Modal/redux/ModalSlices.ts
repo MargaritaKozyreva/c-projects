@@ -1,3 +1,5 @@
+import { EventDTO } from '@modules/Event/dataContext/EventDTO.dto';
+import { LearnTableDTO } from '@modules/LearnTable/dataContext/LearnTableDTO.dto';
 import { createSlice } from '@reduxjs/toolkit';
 
 export enum ModalKey {
@@ -8,8 +10,8 @@ export enum ModalKey {
 
 export type ModalKeyToPayload = {
 	[ModalKey.Default]: null;
-	[ModalKey.Process]: { readonly eventId: number | string };
-	[ModalKey.Done]: { readonly eventName: string };
+	[ModalKey.Process]: { readonly event: LearnTableDTO.IEvent };
+	[ModalKey.Done]: { readonly selectedEvent: EventDTO.IEventCalendar };
 };
 
 export type ModalState = {

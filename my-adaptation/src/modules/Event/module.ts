@@ -14,7 +14,7 @@ class EventModule implements BaseModule {
 	getReducers() {
 		return {
 			events: eventReducers,
-			calendarEvents: eventCalendarReducers
+			calendarEvents: eventCalendarReducers,
 		};
 	}
 

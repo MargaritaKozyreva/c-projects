@@ -1,5 +1,6 @@
 import { BaseModule } from '../allModules';
 import { modalReducers } from './redux/ModalSlices';
+import ModalSaga from './sagas/ModalSaga';
 class ModalModule implements BaseModule {
 	readonly name = 'modal';
 
@@ -14,7 +15,7 @@ class ModalModule implements BaseModule {
 	}
 
 	getSagas() {
-		return [];
+		return [ModalSaga()];
 	}
 
 	getRoutes() {

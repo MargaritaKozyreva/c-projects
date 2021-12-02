@@ -25,9 +25,22 @@ function* EventCalendarSaga(action: any): SagaDataRequest<{
 	}
 }
 
+function* EventRecordSaga(action: any): SagaDataRequest<{
+	data: EventDTO.IEvent;
+}> {
+	try {
+		const { data } = yield call(() =>
+			eventContext.recordOnEvent(action.payload));
+		yield put(eventCalendarActions.recordOnEventSuccess(data));
+	} catch (error) {
+		yield put(eventCalendarActions.recordOnEventError(error));
+	}
+}
+
 export default function* () {
 	yield takeEvery(
 		eventCalendarActions.getAllEventsForCalendarPending,
 		EventCalendarSaga
 	);
+	yield takeEvery(eventCalendarActions.recordOnEventPending, EventRecordSaga);
 }

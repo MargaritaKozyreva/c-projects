@@ -5,15 +5,18 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, Location } from 'react-router-dom';
 
-const ButtonController = (props: LearnTableDTO.ITableItem & {
-		url: Location;
-	}) => {
-	const { type, state, id, action, url } = props;
+interface Props {
+	item: LearnTableDTO.ITableItem;
+	url: Location;
+}
+
+const ButtonController: React.FC<Props> = (props) => {
+	const { item, url } = props;
 
 	const dispatch = useDispatch();
 
-	if (type === 'event') {
-		switch (state) {
+	if (item.type === 'event') {
+		switch (item.state) {
 			case 0:
 				return (
 					<Button
@@ -23,28 +26,28 @@ const ButtonController = (props: LearnTableDTO.ITableItem & {
 						onClick={ () => {
 							dispatch(modalActions.showModal({
 								key: ModalKey.Process,
-								payload: { eventId: 1 }
+								payload: { event: item as LearnTableDTO.IEvent }
 							}));
 						} }
 					>
-						{ action?.text }
+						{ item.action?.text }
 					</Button>
 				);
 
 			default:
 				return (
-					<Link to={ `${ url.pathname }/${ type }/${ id }` }>
+					<Link to={ `${ url.pathname }/${ item.type }/${ item.id }` }>
 						<Button onClick={ () => {} } mode="secondary">
-							{ action?.text }
+							{ item.action?.text }
 						</Button>
 					</Link>
 				);
 		}
 	} else {
 		return (
-			<Link to={ `${ url.pathname }/${ type }/${ id }` }>
+			<Link to={ `${ url.pathname }/${ item.type }/${ item.id }` }>
 				<Button onClick={ () => {} } mode="secondary">
-					{ action?.text }
+					{ item.action?.text }
 				</Button>
 			</Link>
 		);

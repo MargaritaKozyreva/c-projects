@@ -87,6 +87,24 @@ class EventContext {
 			]
 		});
 	}
+
+	recordOnEvent(eventId: string): ResponseResult<EventDTO.IEvent> {
+		return httpServiceMock<EventDTO.IEvent>({
+			id: eventId,
+			title: 'Тренинг #PROклиента',
+			info: {
+				place: 'МСК',
+				type: 'event',
+				dateStart: '21.11.2021 10:00',
+				dateEnd: '21.11.2021 13:00',
+				personCount: 30,
+				state: 'Запланированно',
+				mentor: 'Козырева Маргарита Анатольевна',
+				mentorPosition: 'Региональный HR BP'
+			},
+			attachFiles: []
+		});
+	}
 }
 
 export const eventContext = new EventContext();

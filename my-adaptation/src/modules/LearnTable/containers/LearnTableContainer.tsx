@@ -5,16 +5,12 @@ import { learnTableActions, learnTableState } from '../redux/learnTableSlices';
 
 import Table from '@ui/components/Table';
 import { WithSkeleton } from '@ui/components/WithSkeleton';
-import Button from '@ui/components/Button';
 import { useLocation } from 'react-router';
-import { Link } from 'react-router-dom';
 import { Accordion } from '@ui/components/Accordion';
 import { setState } from '../helpers/functions';
 import { Chips } from '@ui/components/Chips';
 import { Span } from '@ui/components/Typography';
-import EventRegistrationProcess from '@modules/Modal/components/Content/Event/EventRegistration/EventRegistrationProcess';
 import ButtonController from '../components/ButtonController';
-import { Path } from 'typescript';
 
 interface IState {
 	learnTable: {
@@ -67,7 +63,7 @@ const LearnTableContainer: React.FC = () => {
 										</Chips>
 									</Table.Cell>
 									<Table.Cell>
-										<ButtonController { ...listItem } url={ url } />
+										<ButtonController item={ listItem } url={ url } />
 									</Table.Cell>
 								</Table.Row>
 							)) }

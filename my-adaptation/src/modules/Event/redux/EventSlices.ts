@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AxiosResponse } from 'axios';
-import { eventContext } from '../dataContext/EventContext';
 import { EventDTO } from '../dataContext/EventDTO.dto';
 
 export type EventState = {
