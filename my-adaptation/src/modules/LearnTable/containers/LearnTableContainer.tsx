@@ -7,10 +7,12 @@ import Table from '@ui/components/Table';
 import { WithSkeleton } from '@ui/components/WithSkeleton';
 import { useLocation } from 'react-router';
 import { Accordion } from '@ui/components/Accordion';
-import { setState } from '../helpers/functions';
+import { educationItemIcon, setState } from '../helpers/functions';
 import { Chips } from '@ui/components/Chips';
 import { Span } from '@ui/components/Typography';
 import ButtonController from '../components/ButtonController';
+import Zone from '@ui/components/Card/Zone';
+import Clever from '@icons/Clever';
 
 interface IState {
 	learnTable: {
@@ -43,30 +45,56 @@ const LearnTableContainer: React.FC = () => {
 							<Table.Row>
 								{ headerList.map((title: string) => (
 									<Table.Cell key={ title } type="th">
-										{ title }
+										{ title === 'clever' ? <Clever /> : title }
 									</Table.Cell>
 								)) }
 								<Table.Cell key={ headerList?.length + 1 } type="th" />
 							</Table.Row>
 						</Table.Head>
 						<Table.Body>
-							{ block.list.map((listItem: LearnTableDTO.ITableItem) => (
-								<Table.Row key={ listItem.id }>
-									<Table.Cell>{ setState(listItem).titleRU }</Table.Cell>
-									<Table.Cell>{ listItem.clever }</Table.Cell>
-									<Table.Cell>{ listItem.name }</Table.Cell>
-									<Table.Cell>
-										<Chips design="warning">
-											<Span transform="uppercase" size="xs">
-												{ setState(listItem).status || '' }
-											</Span>
-										</Chips>
-									</Table.Cell>
-									<Table.Cell>
-										<ButtonController item={ listItem } url={ url } />
-									</Table.Cell>
-								</Table.Row>
-							)) }
+							{ block.list.map((listItem: LearnTableDTO.ITableItem, index) => {
+								const Icon =
+									educationItemIcon[
+										educationItemIcon.findIndex((elem) => elem.type === listItem.type)
+									]?.icon;
+								return (
+									<Table.Row key={ listItem.id }>
+										<Table.Cell>
+											<Zone
+												direction="row"
+												justifyContent="flex-start"
+												alignItems="flex-start"
+											>
+												<Icon style={ { marginRight: '10px' } } />
+												{ setState(listItem).titleRU }
+											</Zone>
+										</Table.Cell>
+										<Table.Cell>
+											<Zone
+												direction="row"
+												justifyContent="center"
+												alignItems="flex-end"
+											>
+												<Span>
+													{ listItem.clever }
+												</Span>
+												<Clever style={ { marginLeft: '10px' } } />
+											</Zone>
+										</Table.Cell>
+										<Table.Cell>{ listItem.name }</Table.Cell>
+										<Table.Cell>
+											<Chips design="warning">
+												<Span transform="uppercase" size="xs">
+													{ setState(listItem).status || '' }
+												</Span>
+											</Chips>
+										</Table.Cell>
+										<Table.Cell>
+											<ButtonController item={ listItem } url={ url } />
+										</Table.Cell>
+									</Table.Row>
+								);
+							}) }
 						</Table.Body>
 					</Table>
 				</Accordion>

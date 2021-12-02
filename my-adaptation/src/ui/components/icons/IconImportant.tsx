@@ -38,3 +38,4 @@ IconImportant.defaultProps = {
 };
 
 IconImportant.displayName = 'IconImportant';
+export default IconImportant

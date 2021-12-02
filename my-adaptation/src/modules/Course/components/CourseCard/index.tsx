@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '@ui/components/Button';
 import Table from '@ui/components/Table';
-import { IconPlay } from '@icons/IconPlay';
+import { IconPlay } from '@icons/index';
 import { CourseDTO } from '@modules/Course/dataContext/CourseDTO.dto';
 import './styles.scss';
 

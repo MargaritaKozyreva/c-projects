@@ -1,4 +1,7 @@
+import React from 'react';
+import { Camera, Event, Laptop, OpenBook, Pencil } from '@icons/index';
 import { LearnTableDTO } from '../dataContext/LearnTableDTO.dto';
+import { ReactNode } from 'react';
 enum StatusColor {
 	'progress' = 1,
 	'finished' = 2,
@@ -40,6 +43,31 @@ enum EducationItemTitleRU {
 	'task' = 'Задание',
 	'video' = 'Видео'
 }
+export const educationItemIcon: {
+	type: string;
+	icon: any;
+}[] = [
+	{
+		type: 'course',
+		icon: Laptop
+	},
+	{
+		type: 'assessment',
+		icon: Pencil
+	},
+	{
+		type: 'event',
+		icon: Event
+	},
+	{
+		type: 'task',
+		icon: OpenBook
+	},
+	{
+		type: 'video',
+		icon: Camera
+	}
+];
 
 export const setState = (item: LearnTableDTO.ITableItem) => {
 	let status = null;

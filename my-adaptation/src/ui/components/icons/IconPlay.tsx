@@ -9,7 +9,7 @@ export interface IconProps extends SVGAttributes<SVGElement> {
 
 const sizes = { xs: 12, s: 16, m: 20, l: 24, xl: 32 };
 
-export const IconPlay: React.FC<IconProps> = (props): JSX.Element => {
+const IconPlay: React.FC<IconProps> = (props): JSX.Element => {
 	const { color = 'currentColor', size = 'm', ...attrs } = props;
 	const d = sizes[size] || size;
 	return (
@@ -35,3 +35,4 @@ IconPlay.defaultProps = {
 };
 
 IconPlay.displayName = 'IconPlay';
+export default IconPlay

@@ -2,7 +2,6 @@
 .zone {
     display: flex;
     justify-content: space-between;
-    font-size: var(--font-size-xl);
 
     @include set-spaces("margin");
     

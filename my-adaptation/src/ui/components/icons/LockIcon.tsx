@@ -18,3 +18,4 @@ export const LockIcon: React.FC = () => {
 		</svg>
 	);
 };
+export default LockIcon;
