@@ -1,4 +1,4 @@
-import { CourseContainer } from '@modules/Course/containers/CourseContainer';
+import { CourseContainer } from '@modules/InternModules/Course/containers/CourseContainer';
 import { Page } from '@ui/components/Page';
 import React from 'react';
 import { useParams } from 'react-router';

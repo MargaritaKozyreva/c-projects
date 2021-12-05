@@ -1,4 +1,4 @@
-import { BaseModule } from '../allModules';
+import { BaseModule } from '../InternModules/allModules';
 import { modalReducers } from './redux/ModalSlices';
 import ModalSaga from './sagas/ModalSaga';
 class ModalModule implements BaseModule {

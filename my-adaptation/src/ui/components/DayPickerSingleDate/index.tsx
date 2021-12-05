@@ -7,7 +7,7 @@ import { DayPickerSingleDateController } from 'react-dates';
 import WindowWidth from '../../../hook/hookWidthResize';
 import ArrowDirection from '@icons/ArrowDirection';
 import './styles.scss';
-import { eventCalendarActions } from '@modules/Event/redux/EventCalendarSlices';
+import { eventCalendarActions } from '@modules/InternModules/Event/redux/EventCalendarSlices';
 import { useDispatch } from 'react-redux';
 
 const DayPickerSingleDate = (props: any) => {

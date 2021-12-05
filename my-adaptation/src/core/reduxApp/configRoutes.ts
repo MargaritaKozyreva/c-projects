@@ -1,4 +1,4 @@
-import { allModules, BaseModule, IRouter } from '../../modules/allModules';
+import { allModules, BaseModule, IRouter } from '../../modules/InternModules/allModules';
 
 export const configRoutes = () => {
 	return allModules.reduce(

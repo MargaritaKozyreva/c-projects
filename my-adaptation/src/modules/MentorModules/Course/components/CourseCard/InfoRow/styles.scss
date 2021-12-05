@@ -1,0 +1,42 @@
+.col_1 {
+    width: 40px;
+}
+
+.col_1 {
+    width: 490px;
+}
+.col_2 {
+    width: 226px;
+}
+.col_3 {
+    width: 226px;
+}
+
+.InfoRow {
+    width: 100%;
+    border-radius: 16px;
+    margin: 20px 40px;
+    padding: 0 16px;
+
+    /* Semibold/16 */
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    position: static;
+
+    height: 56px;
+    left: 772px;
+    top: 0px;
+
+    /* Gray/20 */
+
+    background: #e1e5eb;
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 4;
+    flex-grow: 0;
+}
