@@ -1,5 +1,5 @@
 import { all, ForkEffect } from 'redux-saga/effects';
-import { allModules } from '../../modules/InternModules/allModules';
+import { allModules } from '../../modules/allModules';
 
 export const configSaga = () => {
 	const sagas = allModules.reduce(

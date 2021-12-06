@@ -1,4 +1,4 @@
-import { allModules } from '../../modules/InternModules/allModules';
+import { allModules } from '../../modules/allModules';
 
 export const configMiddleware = (...customMiddlewares: any[]) => {
 	let middlewares = [...customMiddlewares];

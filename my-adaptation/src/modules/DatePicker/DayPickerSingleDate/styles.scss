@@ -1,0 +1,150 @@
+﻿.CalendarMonth_table {
+  border-collapse: separate;
+  border-spacing: 6px;
+}
+
+/*Название месяца*/
+.CalendarMonth_caption {
+  text-align: left;
+  padding-left: 8px;
+  text-transform: uppercase;
+}
+
+/*Дни недели*/
+.DayPicker_weekHeader {
+  padding: 0px !important;
+}
+
+.DayPicker_weekHeader_ul {
+  padding-left: 17px;
+}
+
+.DayPicker_weekHeader + .DayPicker_weekHeader .DayPicker_weekHeader_ul {
+  padding-left: 15px;
+}
+
+.DayPicker_weekHeader_li {
+  width: 32px !important;
+  margin-right: 6px;
+  font-weight: 500;
+  color: #157435;
+}
+
+.DayPicker_weekHeader_li:last-child {
+  width: 32px !important;
+  margin-right: 0px;
+}
+
+.DayPicker_weekHeader_li:first-letter{
+  text-transform: uppercase;
+}
+
+/*Боковая навигация*/
+.DayPickerNavigation_button {
+  position: absolute;
+  top: 150px;
+  transition: all 0.1s ease-in-out;
+}
+
+.DayPickerNavigation_button:hover {
+  transform: scale(1.2);
+}
+
+.DayPickerNavigation_button:first-child {
+  padding-right: 0px;
+  left: -4px;
+}
+
+.DayPickerNavigation_button:last-child {
+  padding-right: 0px;
+  right: 0px;
+}
+
+/*Ячейки*/
+.CalendarDay__default {
+  border: none;
+  border-radius: 50%;
+  height: 32px !important;
+  width: 32px !important;
+  color: #3B4047;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 0;
+}
+
+.CalendarDay__default:hover {
+  border: none;
+}
+
+.CalendarDay__selected, .CalendarDay__selected:active, .CalendarDay__selected:hover {
+  background: #4CB75B;
+  border: none;
+  color: #fff !important;
+  border-radius: 50%;
+}
+
+.CalendarDay__outside {
+  color: #B4BBC6;
+}
+
+.CalendarDay__orange {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  color: #3B4047;
+  background-color: #ffd383;
+  /* background-image: url('@assets/background_orange.svg'); */
+  /* background-repeat: no-repeat; */
+}
+
+.CalendarDay__orange:hover {
+  background: #fac767;
+  /* color: #fff; */
+  /* background-image: url('src/assets/background_orange.svg'); */
+  /* background-color: #fff; */
+}
+
+.CalendarDay__red {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  color: #3B4047;
+  background-color: #fda7a1;
+  /* background-image: url('/src/svg/background_red.svg'); */
+  /* background-repeat: no-repeat; */
+  /* background-color: #fff; */
+  border: 1px solid #FF5B4F;
+  margin: -1px;
+}
+
+.CalendarDay__red:hover {
+  background: #fc857d;
+  /* background-image: url('/src/svg/background_red_hover.svg'); */
+  /* background-color: #fff; */
+}
+
+.CalendarDay__purple {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  background: #DAD6FE;
+  color: #3B4047;
+}
+
+.CalendarDay__purple:hover {
+  background: #cbc5ff;
+}
+
+.CalendarDay__selected .CalendarDay__orange, .CalendarDay__selected .CalendarDay__purple {
+  background: transparent;
+  color: #fff;
+}

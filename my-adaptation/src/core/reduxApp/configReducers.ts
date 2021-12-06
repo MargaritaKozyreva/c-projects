@@ -1,4 +1,4 @@
-import { allModules, ReducerType } from '../../modules/InternModules/allModules';
+import { allModules, ReducerType } from '../../modules/allModules';
 
 export const configReducers = () => {
 	const reducers: ReducerType = {};

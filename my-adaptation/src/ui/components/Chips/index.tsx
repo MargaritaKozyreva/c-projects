@@ -7,7 +7,7 @@ export type Props = {
 	icon?: React.ReactNode;
 	children?: React.ReactNode;
 	value?: string;
-	design: 'ghost' | 'primary' | 'secondary' | 'warning';
+	design: 'ghost' | 'primary' | 'secondary' | 'warning' | string;
 	rightIcon?: boolean;
 	active?: boolean;
 };

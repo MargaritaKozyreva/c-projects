@@ -1,5 +1,5 @@
-import { EventDTO } from '@modules/InternModules/Event/dataContext/EventDTO.dto';
-import { LearnTableDTO } from '@modules/InternModules/LearnTable/dataContext/LearnTableDTO.dto';
+import { EventDTO } from '../../Event/dataContext/EventDTO.dto';
+import { LearnTableDTO } from '../../LearnTable/dataContext/LearnTableDTO.dto';
 import { createSlice } from '@reduxjs/toolkit';
 
 export enum ModalKey {

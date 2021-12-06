@@ -1,4 +1,4 @@
-import { BaseModule } from '../InternModules/allModules';
+import { BaseModule } from '@modules/allModules';
 import { userReducers } from './redux/userSlices';
 import { userSaga } from './sagas/userSagas';
 

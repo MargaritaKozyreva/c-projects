@@ -1,5 +1,7 @@
-@mixin set-color($type, $color) {
-    @each $color, $value in $COLORS {
-        $type: #{$color};
+@mixin set-color() {
+    @each $colorName, $val in $COLORS {
+        &--color-#{$colorName} {
+			color: #{$val};
+		}
     }
 }

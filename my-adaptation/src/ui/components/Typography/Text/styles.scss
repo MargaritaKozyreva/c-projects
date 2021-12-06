@@ -1,8 +1,8 @@
 @import "../../../design/root";
 
 .text {
-
-    @include set-fontt();
+    @include set-font();
+    @include set-color();
 
     &.p,
     &.span {

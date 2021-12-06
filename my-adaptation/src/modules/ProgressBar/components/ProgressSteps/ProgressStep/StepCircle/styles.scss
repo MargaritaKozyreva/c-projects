@@ -1,0 +1,29 @@
+.step-circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    color: #9299A4;
+    background: #9299A4;
+    display: flex;
+    align-items: center;
+    margin: 8px;
+    top: 36px;
+
+    &.selected {
+        color: #4CB75B;
+        background: #4CB75B;
+    }
+
+    &.locked {
+        color: #9299A4;
+        background: #9299A4;
+    }
+
+    &.available {
+        color: #9299A4;
+        background: #9299A4;
+    }
+
+
+
+}

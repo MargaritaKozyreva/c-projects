@@ -1,7 +1,7 @@
 import React from 'react';
-import EventContainer from '@modules/InternModules/Event/containers/EventCardContainer';
 import { useParams } from 'react-router';
 import { Page } from '@ui/components/Page';
+import EventContainer from '@modules/Event/containers/EventCardContainer';
 
 const EventPage: React.FC = () => {
 	const { id } = useParams();

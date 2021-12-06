@@ -9,6 +9,7 @@ export interface Props {
 	type?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
 	weight?: 'regular' | 'medium' | 'bold';
 	transform?: 'lowercase' | 'uppercase' | 'capitalize';
+	color?: 'default' | 'second';
 }
 
 const setDefaultStyle = (props: Props) => {
@@ -18,9 +19,10 @@ const setDefaultStyle = (props: Props) => {
 const setDefaultClassName = (props: Props) => {
 	return cn(
 		'text',
-		`text--type-${ props.type }` || 'text--type-p',
-		`text--size-${ props.size }` || 'text--size-m',
-		`text--weight-${ props.weight }` || 'text--weight-regular',
+		`text--type-${ props.type || 'p' }`,
+		`text--size-${ props.size || 'm' }`,
+		`text--weight-${ props.weight || 'regular' }`,
+		`text--color-${ props.color || 'default' }`,
 		props.className
 	);
 };

@@ -1,7 +1,7 @@
+import EventRegistrationDone from '@modules/Event/containers/EventsDatePickerContainer/EventRegistrationDone/EventRegistrationDone';
+import EventRegistrationProcess from '@modules/Event/containers/EventsDatePickerContainer/EventRegistrationProcess/EventRegistrationProcess';
 import { ModalKey, ModalKeyToPayload } from '@modules/Modal/redux/ModalSlices';
 import React from 'react';
-import EventRegistrationDone from '../../../InternModules/Event/containers/EventsDatePickerContainer/EventRegistrationDone/EventRegistrationDone';
-import EventRegistrationProcess from '../../../InternModules/Event/containers/EventsDatePickerContainer/EventRegistrationProcess/EventRegistrationProcess';
 
 export const MODAL_KEY_TO_COMPONENT_MAP: {
 	[key in ModalKey]: React.FC<{ payload: ModalKeyToPayload[key] }>;

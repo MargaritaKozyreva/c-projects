@@ -1,14 +1,14 @@
-@mixin set-line-height($size: 'm') {
-	@each $name, $value in map-get($map: $FONTS, $key: 'line-height') {
+@mixin set-line-height($size: "m") {
+	@each $name, $value in map-get($map: $FONTS, $key: "line-height") {
 		@if ($name == $size) {
 			line-height: $value;
 		}
 	}
 }
 
-@mixin set-fontt() {
-	@each $typeName, $typeVal in map-get($map: $FONTS, $key: 'type') {
-		@each $sizeName, $sizeVal in map-get($map: $FONTS, $key: 'size') {
+@mixin set-font() {
+	@each $typeName, $typeVal in map-get($map: $FONTS, $key: "type") {
+		@each $sizeName, $sizeVal in map-get($map: $FONTS, $key: "size") {
 			@if ($sizeName == $typeVal) {
 				&--type-#{$typeName} {
 					@include set-line-height(#{$sizeName});
@@ -21,7 +21,7 @@
 			}
 		}
 	}
-	@each $weightName, $val in map-get($map: $FONTS, $key: 'weight') {
+	@each $weightName, $val in map-get($map: $FONTS, $key: "weight") {
 		&--weight-#{$weightName} {
 			font-weight: #{$val};
 		}

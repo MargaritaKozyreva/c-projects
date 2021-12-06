@@ -1,3 +1,5 @@
 $COLORS: (
-    --accent: var(--color-green-100)
-) !global
+    "accent": var(--color-green-100),
+    "second": var(--color-gray-30),
+    "default": var(--color-gray-80),
+) !global;

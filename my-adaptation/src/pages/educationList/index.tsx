@@ -1,4 +1,4 @@
-import LearnTableContainer from '@modules/InternModules/LearnTable/containers/LearnTableContainer';
+import LearnTableContainer from '@modules/LearnTable/containers/LearnTableContainer';
 import { Page } from '@ui/components/Page';
 import React from 'react';
 

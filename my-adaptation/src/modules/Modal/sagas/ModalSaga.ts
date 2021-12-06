@@ -1,5 +1,5 @@
-import { EventDTO } from '@modules/InternModules/Event/dataContext/EventDTO.dto';
-import { eventCalendarActions } from '@modules/InternModules/Event/redux/EventCalendarSlices';
+import { EventDTO } from '@modules/Event/dataContext/EventDTO.dto';
+import { eventCalendarActions } from '@modules/Event/redux/EventCalendarSlices';
 import { AxiosResponse } from 'axios';
 import { put, StrictEffect, takeEvery } from 'redux-saga/effects';
 import { modalActions } from '../redux/ModalSlices';
