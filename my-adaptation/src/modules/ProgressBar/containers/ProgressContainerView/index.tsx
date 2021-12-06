@@ -32,7 +32,7 @@ export const ProgressContainerView: React.FC = () => {
 				isLoading={ progressResponse.progressData.progress.loading }
 				isEmpty={ progressResponse.progressData.progress === null }
 			>
-				<Zone justifyContent="flex-start">
+				<Zone justify="flex-start">
 					<div style={ { marginRight: '24px' } }>
 						<H1>
 							Моя адаптация -{ ' ' }

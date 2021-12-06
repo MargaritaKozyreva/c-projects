@@ -36,17 +36,17 @@ const EventContainer: React.FC<EventContainerProps> = (props) => {
 						<Card.Zone
 							direction="row"
 							margin="l"
-							justifyContent="space-between"
+							justify="space-between"
 						>
 							<Card.Zone direction="column" margin="none">
 								<div style={ { marginBottom: '40px' } }>
-									<Span size="xs" color="second" transform="uppercase">
+									<Span size="xs" color="gray-50" transform="uppercase">
 										Где будет проходить <br />
 									</Span>
 									<Span size="xs">{ event.info.place }</Span>
 								</div>
 								<div>
-									<Span size="xs" color="second" transform="uppercase">
+									<Span size="xs" color="gray-50" transform="uppercase">
 										Форма проведения
 										<br />
 									</Span>
@@ -55,13 +55,13 @@ const EventContainer: React.FC<EventContainerProps> = (props) => {
 							</Card.Zone>
 							<Card.Zone direction="column" margin="none">
 								<div style={ { marginBottom: '40px' } }>
-									<Span size="xs" color="second" transform="uppercase">
+									<Span size="xs" color="gray-50" transform="uppercase">
 										Дата и время окончания <br />
 									</Span>
 									<Span size="xs">{ event.info.dateEnd }</Span>
 								</div>
 								<div>
-									<Span size="xs" color="second" transform="uppercase">
+									<Span size="xs" color="gray-50" transform="uppercase">
 										Дата и время проведения <br />
 									</Span>
 									<Span size="xs">{ event.info.dateStart }</Span>
@@ -69,13 +69,13 @@ const EventContainer: React.FC<EventContainerProps> = (props) => {
 							</Card.Zone>
 							<Card.Zone direction="column" margin="none">
 								<div style={ { marginBottom: '40px' } }>
-									<Span size="xs" color="second" transform="uppercase">
+									<Span size="xs" color="gray-50" transform="uppercase">
 										Количество участников <br />
 									</Span>
 									<Span size="xs">{ event.info.personCount }</Span>
 								</div>
 								<div>
-									<Span size="xs" color="second" transform="uppercase">
+									<Span size="xs" color="gray-50" transform="uppercase">
 										Статус <br />
 									</Span>
 									<Span size="xs">{ event.info.state }</Span>
@@ -87,16 +87,16 @@ const EventContainer: React.FC<EventContainerProps> = (props) => {
 							<Card.Zone
 								direction="row"
 								margin="l"
-								alignItems="flex-end"
-								justifyContent="flex-start"
+								align="flex-end"
+								justify="flex-start"
 							>
 								<div style={ { marginRight: '24px' } }>
-									<Span size="xs" color="second" transform="uppercase">
+									<Span size="xs" color="gray-50" transform="uppercase">
 										Тренер <br />
 									</Span>
 									<Span size="xs">{ event.info.mentor }</Span>
 								</div>
-								<Span size="xs" weight="bold" color="second">
+								<Span size="xs" weight="bold" color="gray-50">
 									{ event.info.mentorPosition }
 								</Span>
 							</Card.Zone>

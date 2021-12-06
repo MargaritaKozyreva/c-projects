@@ -46,7 +46,7 @@ class LearnTableContext {
 									id: '7015107287547255075',
 									clever: 0,
 									name: 'Основы санитарии и гигиены',
-									state: 3,
+									state: 1,
 									type: 'course',
 									action: {
 										text: 'Смотреть',
@@ -102,7 +102,7 @@ class LearnTableContext {
 									id: '7015107287547255075',
 									clever: 0,
 									name: 'Основы санитарии и гигиены',
-									state: 3,
+									state: 1,
 									type: 'course',
 									action: {
 										text: 'Смотреть',

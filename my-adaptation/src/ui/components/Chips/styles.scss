@@ -52,7 +52,8 @@
     /* ------------------------- Design ------------------------- */
     &_design {
         &_ghost {
-            color: var(--color-accent-1-50);
+            background-color: var(--color-gray-10);
+            color: var(--color-gray-60);
         }
         &_primary {
             background-color: var(--color-green-60);

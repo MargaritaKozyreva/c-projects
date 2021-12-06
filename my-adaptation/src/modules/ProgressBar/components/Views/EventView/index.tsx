@@ -23,14 +23,14 @@ export const EventView: React.FC = () => {
 			<div className="event-view" key={ eventData?.id }>
 				<div className="event-view__nav">
 					<Link to="/adaptation">
-						<Zone justifyContent="flex-start" margin="none">
+						<Zone justify="flex-start" margin="none">
 							<ArrowDirection direction="left" />
 							Адаптация
 						</Zone>
 					</Link>
 				</div>
-				<Zone justifyContent="space-between" margin="none">
-					<Zone justifyContent="flex-start" alignItems="center" margin="none">
+				<Zone justify="space-between" margin="none">
+					<Zone justify="flex-start" align="center" margin="none">
 						<div className="event-view__title">
 							<H1>{ eventData?.title }</H1>
 						</div>

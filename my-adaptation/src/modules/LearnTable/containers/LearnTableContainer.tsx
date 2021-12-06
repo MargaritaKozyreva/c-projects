@@ -63,27 +63,35 @@ const LearnTableContainer: React.FC = () => {
 										<Table.Cell>
 											<Zone
 												direction="row"
-												justifyContent="flex-start"
-												alignItems="flex-start"
+												justify="flex-start"
+												align="flex-start"
 											>
 												<Icon style={ { marginRight: '10px' } } />
-												<Span>{ setState(listItem).titleRU }</Span>
+												<Span
+													transform="uppercase"
+													smallCaps={ true }
+													color="gray-50"
+												>
+													{ setState(listItem).titleRU }
+												</Span>
 											</Zone>
 										</Table.Cell>
 										<Table.Cell>
 											<Zone
 												direction="row"
-												justifyContent="center"
-												alignItems="flex-end"
+												justify="center"
+												align="flex-end"
 											>
 												<Span color="second">{ listItem.clever }</Span>
 												<Clever style={ { marginLeft: '10px' } } />
 											</Zone>
 										</Table.Cell>
-										<Table.Cell>{ listItem.name }</Table.Cell>
+										<Table.Cell>
+											<Span color="gray-60">{ listItem.name }</Span>
+										</Table.Cell>
 										<Table.Cell>
 											<Chips
-												design={ setState(listItem).statusColor || 'warning' }
+												design={ setState(listItem).statusColor || 'ghost' }
 											>
 												{ setState(listItem).status || '' }
 											</Chips>

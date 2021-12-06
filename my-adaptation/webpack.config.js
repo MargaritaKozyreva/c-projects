@@ -22,14 +22,13 @@ module.exports = {
 	},
 	output: {
 		path: path.join(__dirname, 'build'),
-		publicPath: 'auto',
-		filename: 'bundle.js',
+		publicPath: '/',
+		filename: 'main.[hash].js'
 	},
 	devServer: {
 		static: {
 			directory: path.join(__dirname, 'public'),
 		},
-
 		port: 4200,
 		//disableHostCheck: true,
 		historyApiFallback: true,

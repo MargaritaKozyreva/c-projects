@@ -4,12 +4,14 @@
     @include set-font();
     @include set-color();
 
-    &.p,
-    &.span {
-        color: var(--color-gray-70);
-    }
-
-    &.uppercase {
+    &--transform-uppercase {
         text-transform: uppercase;
+    }
+    &--transform-lowercase {
+        text-transform: lowercase;
+    }
+    &--smallcaps {
+        letter-spacing: 0.4px;
+        font-variant: small-caps;
     }
 }

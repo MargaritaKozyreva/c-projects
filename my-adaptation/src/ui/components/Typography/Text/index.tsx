@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, ReactNode } from 'react';
+import React, { HTMLAttributes, ReactNode, useMemo } from 'react';
 import cn from 'classnames';
 import './styles.scss';
 
@@ -6,46 +6,52 @@ export interface Props {
 	className?: string;
 	children?: React.ReactNode;
 	size?: 'xs' | 's' | 'm';
+	smallCaps?: boolean;
 	type?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
 	weight?: 'regular' | 'medium' | 'bold';
 	transform?: 'lowercase' | 'uppercase' | 'capitalize';
-	color?: 'default' | 'second';
+	color?: 'default' | 'second' | string;
 }
 
-const setDefaultStyle = (props: Props) => {
-	return { textTransform: props.transform };
-};
-
-const setDefaultClassName = (props: Props) => {
-	return cn(
-		'text',
-		`text--type-${ props.type || 'p' }`,
-		`text--size-${ props.size || 'm' }`,
-		`text--weight-${ props.weight || 'regular' }`,
-		`text--color-${ props.color || 'default' }`,
-		props.className
-	);
-};
-
 const Text: React.FC<Props> = (props: Props) => {
-	const { children, ...attrs } = props;
+	const {
+		children,
+		type,
+		size,
+		weight,
+		color,
+		transform,
+		smallCaps,
+		...attrs
+	} = props;
+
+	const styles = useMemo(
+		() => ({
+			container: cn(
+				'text',
+				`text--type-${ props.type || 'p' }`,
+				`text--size-${ props.size || 'm' }`,
+				`text--weight-${ props.weight || 'regular' }`,
+				`text--color-${ props.color || 'default' }`,
+				`text--transform-${ transform }`,
+				props.className
+			),
+			small: cn({
+				['text--smallcaps']: smallCaps
+			})
+		}),
+		[children, type, size, weight, color]
+	);
+
 	let content = (
-		<span
-			className={ setDefaultClassName(props) }
-			style={ setDefaultStyle(props) }
-			{ ...attrs }
-		>
+		<span className={ styles.container + ' ' + styles.small } { ...attrs }>
 			{ children }
 		</span>
 	);
 
 	if (props.type === 'p') {
 		content = (
-			<p
-				className={ setDefaultClassName(props) }
-				style={ setDefaultStyle(props) }
-				{ ...attrs }
-			>
+			<p className={ styles.container + ' ' + styles.small } { ...attrs }>
 				{ children }
 			</p>
 		);
@@ -53,11 +59,7 @@ const Text: React.FC<Props> = (props: Props) => {
 
 	if (props.type === 'span') {
 		content = (
-			<span
-				className={ setDefaultClassName(props) }
-				style={ setDefaultStyle(props) }
-				{ ...attrs }
-			>
+			<span className={ styles.container + ' ' + styles.small } { ...attrs }>
 				{ children }
 			</span>
 		);

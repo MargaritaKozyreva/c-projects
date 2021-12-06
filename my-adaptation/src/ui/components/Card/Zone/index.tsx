@@ -8,7 +8,7 @@ export interface Props {
 	direction?: 'row' | 'column';
 	margin?: 'none' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl';
 	line?: 'top' | 'bottom';
-	alignItems?:
+	align?:
 		| 'normal'
 		| 'inherit'
 		| 'initial'
@@ -20,7 +20,7 @@ export interface Props {
 		| 'self-start'
 		| 'self-end'
 		| 'baseline';
-	justifyContent?:
+	justify?:
 		| 'normal'
 		| 'inherit'
 		| 'initial'
@@ -36,8 +36,12 @@ const Zone: React.FC<Props> = (props) => {
 	const { children, ...attrs } = props;
 
 	const setDefaultStyle = (props: Props) => {
-		const { direction = 'row', justifyContent, alignItems } = props;
-		return { flexDirection: direction, justifyContent, alignItems };
+		const { direction = 'row', justify, align } = props;
+		return {
+			flexDirection: direction,
+			justifyContent: justify,
+			alignItems: align
+		};
 	};
 
 	const setDefaultClassName = (props: Props) => {

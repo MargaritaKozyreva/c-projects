@@ -22,9 +22,9 @@ export const CourseView: React.FC = () => {
 			<div className="course-view">
 				<div className="course-view__nav">
 					<Link to="/adaptation">
-						<Zone justifyContent="flex-start" margin="none">
+						<Zone justify="flex-start" margin="none">
 							<ArrowDirection direction="left" />
-							На главную
+							Адаптация
 						</Zone>
 					</Link>
 				</div>

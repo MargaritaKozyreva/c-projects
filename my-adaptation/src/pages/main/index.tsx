@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { EventPage } from '../event';
 import { CoursePage } from '../course';
 import { EducationPage } from '../educationList';
@@ -23,6 +23,7 @@ const Main = () => {
 			isEmpty={ userState.entitiy === null }
 		>
 			<Routes>
+				<Route path="/" element={ <Navigate to="/adaptation" replace /> } />
 				<Route path="/adaptation" element={ <ProgressContainer /> }>
 					<Route index element={ <EducationPage /> } />
 					<Route path="event/:id" element={ <EventPage /> } />
